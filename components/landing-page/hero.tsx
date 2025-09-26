@@ -35,9 +35,9 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="card mb-32 relative overflow-hidden shadow-md h-[calc(100vh-8rem)] bg-gray-50 dark:bg-background"
+            className="card mt-32 mb-32 relative overflow-hidden shadow-md h-[calc(100vh-200px)] bg-gray-50 dark:bg-background"
         >
-            <div className="mx-auto max-w-7xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col md:flex-row items-start h-full">
+            <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col md:flex-row items-start h-full">
                 {/* Text content - takes full width on mobile, positioned more to the left on larger screens */}
                 <div className="w-full md:w-3/5 z-10 pl-2 sm:pl-4 md:pl-8 lg:pl-12 flex flex-col justify-center h-full">
                     <h1 className="text-black dark:text-white">

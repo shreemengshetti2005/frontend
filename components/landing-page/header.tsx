@@ -193,7 +193,7 @@ export default function FloatingNavbar() {
             </header>
 
             {/* Header Spacer - Automatically pushes content below fixed header */}
-            <div className="h-32" />
+            <div className="h-4" />
 
             {/* Mobile Menu */}
             <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />

@@ -35,7 +35,7 @@ const reasons = [
     id: 3,
     title: "Smart Visualization",
     subtitle: "Crystal Clear Insights",
-    description: "Transform complex data into beautiful, interactive visualizations that make insights instantly understandable.",
+    description: "Transform complex data into beautiful, interactive visuals. See insights instantly, clearly, and effortlessly.",
     iconSvg: (
       <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
