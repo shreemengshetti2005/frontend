@@ -173,7 +173,7 @@ export default function FloatingNavbar() {
 
                             {/* Login Button - Desktop */}
                             <Link
-                                href="/login"
+                                href="/start"
                                 className="hidden lg:inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-medium text-[#7A7FEE] hover:text-white hover:bg-[#7A7FEE] border-2 border-[#7A7FEE] transition-all duration-200"
                             >
                                 Login
