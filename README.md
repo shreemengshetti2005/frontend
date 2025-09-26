@@ -1,4 +1,5 @@
 # Automatic - AI-First Development Agency Landing Page
+npx shadcn@latest add "https://v0.app/chat/b/2O78VZuaqpB?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ycNLNkk_zP0yLnh9.9RisjQOZg5S_KjU9f2MMplc6KxiBU0SHhr_RVM9XsFo2-OVDnOSSiT4-.KVgvZgK-0Acujf3PQ1OmQQ"
 
 A modern, professional landing page template for development agencies and tech consultancies built with Next.js 14, TypeScript, and Tailwind CSS.
 
