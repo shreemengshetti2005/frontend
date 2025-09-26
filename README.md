@@ -17,30 +17,38 @@ A modern, professional landing page template for development agencies and tech c
 ## Quick Start
 
 1. **Clone the repository**
-   \`\`\`bash
+   ```bash
    git clone <repository-url>
    cd automatic-landing
-   \`\`\`
+   ```
 
 2. **Install dependencies**
-   \`\`\`bash
+   ```bash
    npm install
+   ```
    # or
+   ```bash
    yarn install
+   ```
    # or
+   ```bash
    bun install
-   \`\`\`
+   ```
 
-3. **Run the development server**
-   \`\`\`bash
+4. **Run the development server**
+   ```bash
    npm run dev
+   ```
    # or
+   ```bash
    yarn dev
+   ```
    # or
+   ```bash
    bun dev
-   \`\`\`
+   ```
 
-4. **Open your browser**
+6. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 The template comes with sample portfolio data so you can see how it works immediately!
@@ -67,9 +75,9 @@ The template includes sample portfolio data to demonstrate functionality. To rep
 
 1. Host your CSV file on a service like Vercel Blob Storage, AWS S3, or Google Sheets
 2. Update the fetch URL in `utils/csv-parser.ts`:
-   \`\`\`typescript
+   ```typescript
    const response = await fetch("YOUR_CSV_URL_HERE")
-   \`\`\`
+   ```
 
 ### Option 3: Switch to JSON Data
 
@@ -135,14 +143,14 @@ This is a standard Next.js application and can be deployed to any platform that 
 
 For production deployment, you may want to set:
 
-\`\`\`env
+```env
 # Optional: For custom analytics or external services
 NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-\`\`\`
+```
 
 ## Project Structure
 
-\`\`\`
+```
 ├── app/                    # Next.js app directory
 ├── components/            # React components
 │   ├── landing-page/     # Landing page specific components
@@ -153,7 +161,7 @@ NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 │   └── ...              # Images, icons, etc.
 ├── utils/               # Utility functions
 └── types/               # TypeScript type definitions
-\`\`\`
+```
 
 ## Technologies Used
 
