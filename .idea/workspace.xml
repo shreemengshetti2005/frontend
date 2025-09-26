@@ -12,8 +12,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "/home/michey/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external"
+    "ts.external.directory.path": "/home/michey/Projects/frontend/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="TaskManager">
