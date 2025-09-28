@@ -63,7 +63,7 @@ export default function ProcessingPage() {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => router.push("/dashboard"), 1200);
+          setTimeout(() => router.push("/dashboard/ednafound"), 1200);
           return 100;
         }
 
