@@ -28,7 +28,7 @@ export default function LandingPage({
   showFooter = true,
 }: LandingPageProps) {
   return (
-    <main className="min-h-screen bg-white dark:bg-[#111111]">
+    <main className="min-h-screen bg-gray-200 dark:bg-[#111111]">
       {showHeader && <Header />}
       <div className="container pt-4">
         <Hero />

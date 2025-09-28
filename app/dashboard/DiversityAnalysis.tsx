@@ -255,7 +255,7 @@ export default function DiversityAnalysis({
           ].map((item, index) => (
             <div
               key={index}
-              className="p-4 bg-gray-50 dark:bg-[#111111] rounded-xl"
+              className="p-4 bg-gray-200 dark:bg-[#111111] rounded-xl"
             >
               <div className="flex items-center justify-between">
                 <div className="font-medium text-gray-700 dark:text-gray-300">

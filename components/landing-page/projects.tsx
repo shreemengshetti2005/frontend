@@ -13,7 +13,7 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    color: "from-purple-500 to-indigo-600",
+    color: "from-[#7A7FEE] to-[#9D7FEE]",
     bgPattern: "bg-gradient-to-bl",
   },
   {
@@ -28,7 +28,7 @@ const reasons = [
         <circle cx="12" cy="12" r="2" />
       </svg>
     ),
-    color: "from-purple-500 to-indigo-600",
+    color: "from-[#9D7FEE] to-[#7A7FEE]",
     bgPattern: "bg-gradient-to-bl",
   },
   {
@@ -42,7 +42,7 @@ const reasons = [
         <circle cx="12" cy="12" r="3" />
       </svg>
     ),
-    color: "from-indigo-500 to-purple-600",
+    color: "from-[#7A7FEE] to-[#C77FEE]",
     bgPattern: "bg-gradient-to-br",
   },
   {
@@ -57,7 +57,7 @@ const reasons = [
         <line x1="12" y1="15" x2="12" y2="3" />
       </svg>
     ),
-    color: "from-indigo-500 to-purple-600",
+    color: "from-[#C77FEE] to-[#7A7FEE]",
     bgPattern: "bg-gradient-to-br",
   },
 ];
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#7A7FEE]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#7A7FEE]/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Header Section */}
@@ -114,7 +114,7 @@ export default function WhyChooseUs() {
               <div className="relative overflow-hidden rounded-xl p-6 lg:p-8 bg-white/95 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-300 dark:border-gray-700/50 shadow-lg dark:shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group-hover:border-[#7A7FEE]/30 group-hover:bg-white/95 dark:group-hover:bg-gray-900">
                 
                 {/* Subtle Background Glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 bg-gradient-to-br from-[#7A7FEE] to-purple-600 rounded-xl"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-300 bg-gradient-to-br from-[#7A7FEE] to-[#9D7FEE] rounded-xl"></div>
 
                 {/* Content */}
                 <div className="relative z-20 flex items-start space-x-4">

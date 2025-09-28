@@ -25,7 +25,7 @@ export default function RecentPapersSection() {
                     {recentPapers.map((paper) => (
                         <div
                             key={paper.id}
-                            className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 border border-gray-100 dark:border-gray-800 hover:border-[#7A7FEE] transition-all duration-200 hover:shadow-lg"
+                            className="bg-gray-200 dark:bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 border border-gray-100 dark:border-gray-800 hover:border-[#7A7FEE] transition-all duration-200 hover:shadow-lg"
                         >
                             {/* Paper Content */}
                             <div className="space-y-3 sm:space-y-4">

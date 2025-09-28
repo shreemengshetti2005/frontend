@@ -34,7 +34,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#111111] flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="min-h-screen bg-gray-200 dark:bg-[#111111] flex items-center justify-center px-4 sm:px-6 lg:px-8 mt-8">
             <div className="max-w-md w-full space-y-6">
                 {/* Header */}
                 <div className="text-center">
@@ -47,7 +47,7 @@ export default function LoginPage() {
                 </div>
 
                 {/* Login Form */}
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                <div className="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
                     <div className="space-y-5">
                         {/* Email Field */}
                         <div>
@@ -151,7 +151,7 @@ export default function LoginPage() {
                                 <div className="w-full border-t border-gray-200 dark:border-gray-700" />
                             </div>
                             <div className="relative flex justify-center text-xs">
-                                <span className="px-2 bg-gray-50 dark:bg-[#1a1a1a] text-gray-500 dark:text-gray-400">Or</span>
+                                <span className="px-2 bg-gray-200 dark:bg-[#1a1a1a] text-gray-500 dark:text-gray-400">Or</span>
                             </div>
                         </div>
 
@@ -159,7 +159,7 @@ export default function LoginPage() {
                         <button
                             type="button"
                             onClick={handleGoogleLogin}
-                            className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111111] hover:bg-gray-50 dark:hover:bg-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7A7FEE] transition-all duration-200"
+                            className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-[#111111] hover:bg-gray-200 dark:hover:bg-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7A7FEE] transition-all duration-200"
                         >
                             <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -176,7 +176,7 @@ export default function LoginPage() {
                                 <div className="w-full border-t border-gray-200 dark:border-gray-700" />
                             </div>
                             <div className="relative flex justify-center text-xs">
-                                <span className="px-2 bg-gray-50 dark:bg-[#1a1a1a] text-gray-500 dark:text-gray-400">Or</span>
+                                <span className="px-2 bg-gray-200 dark:bg-[#1a1a1a] text-gray-500 dark:text-gray-400">Or</span>
                             </div>
                         </div>
 
@@ -184,7 +184,7 @@ export default function LoginPage() {
                         <button
                             type="button"
                             onClick={handleSkip}
-                            className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-[#0f0f0f] hover:bg-gray-100 dark:hover:bg-[#1f1f1f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 transition-all duration-200"
+                            className="w-full flex items-center justify-center px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-200 dark:bg-[#0f0f0f] hover:bg-gray-100 dark:hover:bg-[#1f1f1f] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 transition-all duration-200"
                         >
                             <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
