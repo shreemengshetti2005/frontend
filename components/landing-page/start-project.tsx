@@ -8,20 +8,23 @@ export default function LoginPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleEmailLogin = (e) => {
+    const handleEmailLogin = (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
         // Hardcoded login logic - replace with actual authentication
         setTimeout(() => {
             console.log('Login attempted with:', { email, password });
             setIsLoading(false);
-            // Add your login logic here
+            // Redirect to upload page after successful login
+            window.location.href = '/upload';
         }, 1500);
     };
 
     const handleGoogleLogin = () => {
         console.log('Google login clicked');
         // Add Google OAuth logic here
+        // For now, redirect to upload page
+        window.location.href = '/upload';
     };
 
     return (
