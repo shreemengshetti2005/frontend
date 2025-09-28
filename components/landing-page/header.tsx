@@ -10,28 +10,28 @@ import { useTheme } from "next-themes";
 import MobileMenu from "./mobile-menu";
 
 // Mock data for resources dropdown
-const resourcesDropdownData = [
-  {
-    title: "Documentation",
-    href: "/resources/docs",
-    description: "API docs and guides",
-  },
-  {
-    title: "Tutorials",
-    href: "/resources/tutorials",
-    description: "Step-by-step tutorials",
-  },
-  {
-    title: "Blog",
-    href: "/resources/blog",
-    description: "Latest updates and insights",
-  },
-  {
-    title: "Community",
-    href: "/resources/community",
-    description: "Join our community",
-  },
-];
+// const resourcesDropdownData = [
+//   {
+//     title: "Documentation",
+//     href: "/resources/docs",
+//     description: "API docs and guides",
+//   },
+//   {
+//     title: "Tutorials",
+//     href: "/resources/tutorials",
+//     description: "Step-by-step tutorials",
+//   },
+//   {
+//     title: "Blog",
+//     href: "/resources/blog",
+//     description: "Latest updates and insights",
+//   },
+//   {
+//     title: "Community",
+//     href: "/resources/community",
+//     description: "Join our community",
+//   },
+// ];
 
 // Theme Toggle Component
 function ThemeToggle() {
@@ -68,64 +68,64 @@ function ThemeToggle() {
 }
 
 // Resources Dropdown Component
-function ResourcesDropdown() {
-  const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (isOpen) setIsOpen(false);
-    };
-
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isOpen]);
-
-  return (
-    <div className="relative">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsOpen(!isOpen);
-        }}
-        className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
-          pathname.startsWith("/resources")
-            ? "text-[#7A7FEE] bg-[#7A7FEE]/10"
-            : "text-gray-700 dark:text-gray-300 hover:text-[#7A7FEE] hover:bg-gray-100 dark:hover:bg-gray-800"
-        }`}
-      >
-        Resources
-        <ChevronDown
-          className={`h-4 w-4 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-[#111111] rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 z-50">
-          <div className="p-2">
-            {resourcesDropdownData.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-              >
-                <div className="font-medium text-gray-900 dark:text-white">
-                  {item.title}
-                </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">
-                  {item.description}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+// function ResourcesDropdown() {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const pathname = usePathname();
+//
+//   useEffect(() => {
+//     const handleClickOutside = () => {
+//       if (isOpen) setIsOpen(false);
+//     };
+//
+//     document.addEventListener("click", handleClickOutside);
+//     return () => document.removeEventListener("click", handleClickOutside);
+//   }, [isOpen]);
+//
+//   return (
+//     <div className="relative">
+//       <button
+//         onClick={(e) => {
+//           e.stopPropagation();
+//           setIsOpen(!isOpen);
+//         }}
+//         className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
+//           pathname.startsWith("/resources")
+//             ? "text-[#7A7FEE] bg-[#7A7FEE]/10"
+//             : "text-gray-700 dark:text-gray-300 hover:text-[#7A7FEE] hover:bg-gray-100 dark:hover:bg-gray-800"
+//         }`}
+//       >
+//         Resources
+//         <ChevronDown
+//           className={`h-4 w-4 transition-transform ${
+//             isOpen ? "rotate-180" : ""
+//           }`}
+//         />
+//       </button>
+//
+//       {isOpen && (
+//         <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-[#111111] rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 z-50">
+//           <div className="p-2">
+//             {resourcesDropdownData.map((item, index) => (
+//               <Link
+//                 key={index}
+//                 href={item.href}
+//                 onClick={() => setIsOpen(false)}
+//                 className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+//               >
+//                 <div className="font-medium text-gray-900 dark:text-white">
+//                   {item.title}
+//                 </div>
+//                 <div className="text-sm text-gray-500 dark:text-gray-400">
+//                   {item.description}
+//                 </div>
+//               </Link>
+//             ))}
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
 
 export default function FloatingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -194,26 +194,26 @@ export default function FloatingNavbar() {
             {/* Navigation & Actions */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="hidden lg:flex items-center space-x-2">
-                <ResourcesDropdown />
+                {/*<ResourcesDropdown />*/}
                 <Link
-                  href="/portfolio"
+                  href="/search"
                   className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-colors ${
                     pathname === "/portfolio"
                       ? "text-[#7A7FEE] bg-[#7A7FEE]/10"
                       : "text-gray-700 dark:text-gray-300 hover:text-[#7A7FEE] hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
                 >
-                  Portfolio
+                  Literatures
                 </Link>
                 <Link
-                  href="/start"
+                  href="/news"
                   className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-colors ${
                     pathname === "/start"
                       ? "text-[#7A7FEE] bg-[#7A7FEE]/10"
                       : "text-gray-700 dark:text-gray-300 hover:text-[#7A7FEE] hover:bg-gray-100 dark:hover:bg-gray-800"
                   }`}
                 >
-                  Start Project
+                  News
                 </Link>
               </div>
 
