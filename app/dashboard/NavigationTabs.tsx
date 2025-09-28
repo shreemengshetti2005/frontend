@@ -14,7 +14,8 @@ export default function NavigationTabs({
     { id: "diversity", label: "Diversity Analysis", icon: "📈" },
     { id: "timeline", label: "Temporal Trends", icon: "⏱️" },
     { id: "clusters", label: "Cluster Details", icon: "🔍" },
-    {id: "phylogeny", label: "Phylogeny Details", icon: "🌳"}
+    {id: "phylogeny", label: "Phylogeny Details", icon: "🌳"},
+    {id: "discovery", label: "Discovery Details", icon: "🔍"}
 
   ];
 

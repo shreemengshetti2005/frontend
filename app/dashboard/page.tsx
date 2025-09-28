@@ -11,6 +11,7 @@ import ClusterDetails from "./ClusterDetails";
 import ConservationAlerts from "./ConservationAlerts";
 import FooterStats from "./FooterStats";
 import PhylogeneticTree from "./Tree"; // or the correct path where Tree.tsx is located
+import DiscoveryDetails from "./DiscoveryDetails";
 
 
 interface ClusterData {
@@ -145,7 +146,7 @@ export default function DashboardPage() {
               setSelectedCluster={setSelectedCluster}
             />
           )}
-          
+
           {activeTab === "phylogeny" && (
   <div className="mt-12">
     <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
@@ -162,6 +163,13 @@ export default function DashboardPage() {
     </div>
   </div>
 )}
+
+{activeTab === "discovery" && (
+  <DiscoveryDetails
+    clusterData={clusterData}
+  />
+)}
+
 
 
           <ConservationAlerts clusterData={clusterData} />
