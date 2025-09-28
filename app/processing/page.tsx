@@ -99,7 +99,7 @@ export default function ProcessingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#111111]">
+    <main className="min-h-screen bg-gray-200 dark:bg-[#111111]">
       <Header />
 
       {/* Main Content Container */}
@@ -121,7 +121,7 @@ export default function ProcessingPage() {
         <div className="flex-1 flex items-center justify-center px-4 pb-16">
           <div className="w-full max-w-2xl space-y-6">
             {/* Progress Section */}
-            <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Analysis Progress
               </h2>
@@ -144,7 +144,7 @@ export default function ProcessingPage() {
             </div>
 
             {/* Processing Steps Section */}
-            <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
                 Processing Steps
               </h2>

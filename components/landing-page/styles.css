@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #111827;
-  --card: #f3f4f6;
+  --card: #ffffff;
   --card-foreground: #111827;
-  --card-border: #e5e7eb;
+  --card-border: #e2e8f0;
   --primary: #7a7fee;
   --primary-foreground: #ffffff;
-  --secondary: #f3f4f6;
+  --secondary: #f1f5f9;
   --secondary-foreground: #111827;
-  --muted: #6b7280;
-  --muted-foreground: #4b5563;
-  --accent: #f3f4f6;
+  --muted: #64748b;
+  --muted-foreground: #475569;
+  --accent: #f1f5f9;
   --accent-foreground: #111827;
-  --border: #d1d5db;
-  --input: #d1d5db;
+  --border: #cbd5e1;
+  --input: #cbd5e1;
   --ring: #7a7fee;
   --radius: 0.75rem;
   --font-outfit: "Outfit", sans-serif;
@@ -126,6 +126,12 @@
     @apply px-6 py-2.5 rounded-md hover:bg-opacity-90 transition-all text-sm font-medium shadow-sm;
   }
 
+  .btn-primary:hover {
+    background-color: #6b6fd8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 127, 238, 0.3);
+  }
+
   .btn-secondary {
     color: var(--foreground);
     @apply hover:underline transition-all text-sm font-medium py-2.5;
@@ -220,5 +226,38 @@
 
   .prose strong {
     @apply font-semibold text-gray-900 dark:text-white;
+  }
+
+  /* Light mode specific improvements */
+  .light .card {
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .light .card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Enhanced purple theme consistency */
+  .accent-text {
+    color: #7a7fee;
+  }
+
+  .section-subtitle {
+    color: #7a7fee;
+    @apply font-medium mb-6;
+  }
+
+  /* Light mode button improvements */
+  .light .btn-primary {
+    background-color: #7a7fee;
+    color: #ffffff;
+    border: 1px solid #7a7fee;
+  }
+
+  .light .btn-primary:hover {
+    background-color: #6b6fd8;
+    border-color: #6b6fd8;
   }
 }

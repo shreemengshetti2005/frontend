@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative mt-28 mb-28 h-[calc(100vh-200px)] overflow-hidden rounded-3xl bg-gray-50 shadow-md dark:bg-background"
+      className="relative mt-28 mb-28 h-[calc(100vh-200px)] overflow-hidden rounded-3xl bg-gray-100 shadow-md dark:bg-background"
     >
       <div className="relative z-10 flex h-full flex-col md:flex-row items-center md:items-start px-6 sm:px-10 lg:px-16 py-12">
         {/* Text Content */}

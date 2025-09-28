@@ -138,7 +138,7 @@ export default function EdnaFoundPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* eDNA List Section */}
               <div className="lg:col-span-1">
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div className="bg-gray-200 dark:bg-[#1a1a1a] rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                     <Dna className="w-5 h-5 text-[#7A7FEE]" />
                     Detected Species
@@ -181,7 +181,7 @@ export default function EdnaFoundPage() {
 
               {/* Selected eDNA Details */}
               <div className="lg:col-span-2">
-                <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                <div className="bg-gray-200 dark:bg-[#1a1a1a] rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                       {selectedEdna.name}

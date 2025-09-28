@@ -189,7 +189,7 @@ export default function UploadPage() {
   ));
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#111111]">
+    <main className="min-h-screen bg-gray-200 dark:bg-[#111111]">
       <Header />
       {/* Shift here - Added top padding to account for fixed navbar */}
       <div className="container mx-auto px-4 py-8 pt-20 sm:pt-24 md:pt-28 lg:pt-32">
@@ -205,7 +205,7 @@ export default function UploadPage() {
           </div>
 
           {/* Upload Area */}
-          <div className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 mx-4 sm:mx-0">
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 mx-4 sm:mx-0">
             {!selectedFile ? (
               <div
                 className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center transition-all duration-200 cursor-pointer ${

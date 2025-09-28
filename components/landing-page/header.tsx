@@ -110,7 +110,7 @@ function ThemeToggle() {
 //                 key={index}
 //                 href={item.href}
 //                 onClick={() => setIsOpen(false)}
-//                 className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+//                 className="block p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
 //               >
 //                 <div className="font-medium text-gray-900 dark:text-white">
 //                   {item.title}

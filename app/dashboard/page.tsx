@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import MetricsCards from "./MetricsCards";
+import FloatingNavbar from "../../components/landing-page/header";
+import TitleSection from "./TitleSection";
+import NovelSpeciesBanner from "./NovelSpeciesBanner";
 import NavigationTabs from "./NavigationTabs";
+import ExportFooter from "./ExportFooter";
 import TaxonomicOverview from "./TaxonomicOverview";
 import DiversityAnalysis from "./DiversityAnalysis";
 import TemporalTrends from "./TemporalTrends";
 import ClusterDetails from "./ClusterDetails";
-import ConservationAlerts from "./ConservationAlerts";
-import FooterStats from "./FooterStats";
 
 interface ClusterData {
   id: number;
@@ -110,12 +110,14 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0a0a0a] dark:to-[#111111]">
-      <Header currentDate={currentDate} />
+    <div className="min-h-screen bg-gray-200 dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:to-[#111111]">
+      <FloatingNavbar />
+      
+      <TitleSection currentDate={currentDate} />
 
-      <div className="pt-24 pb-8">
+      <div className="pb-8">
         <div className="container mx-auto px-6">
-          <MetricsCards analysisData={analysisData} />
+          <NovelSpeciesBanner isClient={isClient} />
           <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
           {/* Content Sections */}
@@ -138,16 +140,15 @@ export default function DashboardPage() {
           {activeTab === "clusters" && (
             <ClusterDetails
               isClient={isClient}
-              clusterData={clusterData}
-              selectedCluster={selectedCluster}
-              setSelectedCluster={setSelectedCluster}
+              selectedSpecies={null}
+              setSelectedSpecies={() => {}}
             />
           )}
 
-          <ConservationAlerts clusterData={clusterData} />
-          <FooterStats />
         </div>
       </div>
+      
+      <ExportFooter />
     </div>
   );
 }
