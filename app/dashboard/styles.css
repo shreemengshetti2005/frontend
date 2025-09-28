@@ -1,0 +1,149 @@
+/* Dashboard-specific CSS variables and styles */
+:root {
+  /* Glass morphism variables */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  
+  /* Scientific color palette */
+  --scientific-primary: #8b5cf6; /* purple-500 */
+  --scientific-secondary: #64748b; /* slate-500 */
+  --scientific-accent: #a855f7; /* purple-500 */
+  --scientific-muted: #94a3b8; /* slate-400 */
+  
+  /* Typography scale - improved readability */
+  --text-xs: 0.8rem;
+  --text-sm: 0.95rem;
+  --text-base: 1.1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 1.7rem;
+  --text-3xl: 2.1rem;
+  
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+/* Glass morphism card base */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Scientific typography - improved readability */
+.scientific-label {
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--scientific-secondary);
+  font-size: var(--text-sm);
+}
+
+.scientific-value {
+  font-weight: 700;
+  color: var(--scientific-primary);
+  font-size: var(--text-base);
+}
+
+/* Scientific gradient background */
+.dashboard-background {
+  background: linear-gradient(135deg, 
+    #1e1b4b 0%, 
+    #312e81 25%, 
+    #4c1d95 50%, 
+    #581c87 75%, 
+    #2d1b69 100%
+  );
+  min-height: 100vh;
+}
+
+/* Improved card sizing */
+.content-sized-card {
+  height: fit-content;
+  min-height: auto;
+}
+
+/* Interactive states */
+.interactive-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-card:focus-within {
+  outline: 2px solid var(--scientific-accent);
+  outline-offset: 2px;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+/* Globe container */
+.globe-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Phylogenetic tree container */
+.tree-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1025px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1280px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+}
