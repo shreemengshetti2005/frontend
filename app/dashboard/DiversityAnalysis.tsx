@@ -53,6 +53,10 @@ export default function DiversityAnalysis({
     },
   ];
 
+  // Consistent Colors
+  const observedColor = "#3B82F6"; // Blue
+  const literatureColor = "#93C5FD"; // Light Blue
+
   // Diversity Comparison Chart
   useEffect(() => {
     if (!diversityRef.current || !isClient) return;
@@ -87,7 +91,7 @@ export default function DiversityAnalysis({
       ])
       .range([0, width]);
 
-    // Add bars for observed values
+    // Observed bars
     svg
       .selectAll(".bar-observed")
       .data(diversityMetrics)
@@ -98,7 +102,7 @@ export default function DiversityAnalysis({
       .attr("y", (d: DiversityMetric) => y(d.metric) as number)
       .attr("width", 0)
       .attr("height", y.bandwidth() / 2)
-      .style("fill", "#7A7FEE")
+      .style("fill", observedColor)
       .on("mouseover", function (event: any, d: DiversityMetric) {
         const tooltip = container
           .append("div")
@@ -122,7 +126,7 @@ export default function DiversityAnalysis({
       .duration(1000)
       .attr("width", (d: DiversityMetric) => x(d.observed));
 
-    // Add bars for literature values
+    // Literature bars
     svg
       .selectAll(".bar-literature")
       .data(diversityMetrics)
@@ -136,8 +140,8 @@ export default function DiversityAnalysis({
       )
       .attr("width", 0)
       .attr("height", y.bandwidth() / 2)
-      .style("fill", "#FF6B6B")
-      .style("opacity", 0.7)
+      .style("fill", literatureColor)
+      .style("opacity", 0.8)
       .on("mouseover", function (event: any, d: DiversityMetric) {
         const tooltip = container
           .append("div")
@@ -162,7 +166,7 @@ export default function DiversityAnalysis({
       .delay(500)
       .attr("width", (d: DiversityMetric) => x(d.literature));
 
-    // Add axes
+    // Axes
     svg
       .append("g")
       .attr("transform", `translate(0,${height})`)
@@ -170,7 +174,7 @@ export default function DiversityAnalysis({
 
     svg.append("g").call(d3.axisLeft(y));
 
-    // Add legend
+    // Legend
     const legend = svg
       .append("g")
       .attr("transform", `translate(${width - 120}, 10)`);
@@ -181,7 +185,7 @@ export default function DiversityAnalysis({
       .attr("y", 0)
       .attr("width", 12)
       .attr("height", 12)
-      .style("fill", "#7A7FEE");
+      .style("fill", observedColor);
 
     legend
       .append("text")
@@ -197,8 +201,8 @@ export default function DiversityAnalysis({
       .attr("y", 20)
       .attr("width", 12)
       .attr("height", 12)
-      .style("fill", "#FF6B6B")
-      .style("opacity", 0.7);
+      .style("fill", literatureColor)
+      .style("opacity", 0.8);
 
     legend
       .append("text")
@@ -228,30 +232,10 @@ export default function DiversityAnalysis({
         </h3>
         <div className="space-y-4">
           {[
-            {
-              metric: "Shannon H'",
-              value: analysisData.shannonDiversity,
-              unit: "",
-              color: "text-[#7A7FEE]",
-            },
-            {
-              metric: "Simpson D",
-              value: analysisData.simpsonDiversity,
-              unit: "",
-              color: "text-[#4ECDC4]",
-            },
-            {
-              metric: "Pielou J'",
-              value: analysisData.pielouEvenness,
-              unit: "",
-              color: "text-[#FF6B6B]",
-            },
-            {
-              metric: "Coverage",
-              value: analysisData.coverageIndex,
-              unit: "",
-              color: "text-[#45B7D1]",
-            },
+            { metric: "Shannon H'", value: analysisData.shannonDiversity },
+            { metric: "Simpson D", value: analysisData.simpsonDiversity },
+            { metric: "Pielou J'", value: analysisData.pielouEvenness },
+            { metric: "Coverage", value: analysisData.coverageIndex },
           ].map((item, index) => (
             <div
               key={index}
@@ -261,9 +245,8 @@ export default function DiversityAnalysis({
                 <div className="font-medium text-gray-700 dark:text-gray-300">
                   {item.metric}
                 </div>
-                <div className={`text-xl font-bold ${item.color}`}>
+                <div className={`text-xl font-bold text-[#3B82F6]`}>
                   {item.value.toFixed(3)}
-                  {item.unit}
                 </div>
               </div>
             </div>

@@ -30,42 +30,43 @@ export default function TaxonomicOverview({
 }: TaxonomicOverviewProps) {
   const sunburstRef = useRef<HTMLDivElement>(null);
 
+  // Consistent modern blue-teal-green palette
   const taxonomicData: TaxonomicItem[] = [
     {
       name: "Bacteria",
       value: 2845,
-      color: "#7A7FEE",
+      color: "#3B82F6", // Blue
       children: [
-        { name: "Proteobacteria", value: 1234, color: "#8B86FF" },
-        { name: "Firmicutes", value: 856, color: "#9C95FF" },
-        { name: "Bacteroidetes", value: 755, color: "#ADA4FF" },
+        { name: "Proteobacteria", value: 1234, color: "#60A5FA" },
+        { name: "Firmicutes", value: 856, color: "#93C5FD" },
+        { name: "Bacteroidetes", value: 755, color: "#BFDBFE" },
       ],
     },
     {
       name: "Archaea",
       value: 1256,
-      color: "#FF6B6B",
+      color: "#10B981", // Emerald green
       children: [
-        { name: "Euryarchaeota", value: 723, color: "#FF7F7F" },
-        { name: "Thaumarchaeota", value: 533, color: "#FF9393" },
+        { name: "Euryarchaeota", value: 723, color: "#34D399" },
+        { name: "Thaumarchaeota", value: 533, color: "#6EE7B7" },
       ],
     },
     {
       name: "Eukaryota",
       value: 867,
-      color: "#4ECDC4",
+      color: "#06B6D4", // Cyan/Teal
       children: [
-        { name: "Fungi", value: 456, color: "#5ED5CC" },
-        { name: "Protists", value: 411, color: "#6EDDD4" },
+        { name: "Fungi", value: 456, color: "#22D3EE" },
+        { name: "Protists", value: 411, color: "#67E8F9" },
       ],
     },
     {
       name: "Viruses",
       value: 235,
-      color: "#45B7D1",
+      color: "#6366F1", // Indigo
       children: [
-        { name: "DNA Viruses", value: 134, color: "#5BC3D7" },
-        { name: "RNA Viruses", value: 101, color: "#71CFDD" },
+        { name: "DNA Viruses", value: 134, color: "#818CF8" },
+        { name: "RNA Viruses", value: 101, color: "#A5B4FC" },
       ],
     },
   ];
@@ -110,9 +111,9 @@ export default function TaxonomicOverview({
       .append("path")
       .attr("d", arc)
       .style("fill", (d: any) => d.data.color)
-      .style("stroke", "#111")
-      .style("stroke-width", 2)
-      .style("opacity", 0.8)
+      .style("stroke", "#fff")
+      .style("stroke-width", 1.5)
+      .style("opacity", 0.9)
       .on("mouseover", function (event: any, d: any) {
         d3.select(this).style("opacity", 1);
         const tooltip = container
@@ -121,17 +122,17 @@ export default function TaxonomicOverview({
           .style("position", "absolute")
           .style("background", "rgba(0,0,0,0.8)")
           .style("color", "white")
-          .style("padding", "8px")
-          .style("border-radius", "4px")
-          .style("font-size", "12px")
+          .style("padding", "8px 12px")
+          .style("border-radius", "6px")
+          .style("font-size", "13px")
           .style("pointer-events", "none")
           .style("z-index", "1000")
-          .html(`${d.data.name}: ${d.value.toLocaleString()} sequences`)
+          .html(`<strong>${d.data.name}</strong><br/>${d.value.toLocaleString()} sequences`)
           .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px");
+          .style("top", event.pageY - 28 + "px");
       })
       .on("mouseout", function () {
-        d3.select(this).style("opacity", 0.8);
+        d3.select(this).style("opacity", 0.9);
         container.selectAll(".tooltip").remove();
       });
 
@@ -140,16 +141,16 @@ export default function TaxonomicOverview({
       .append("text")
       .attr("text-anchor", "middle")
       .attr("dy", "-0.5em")
-      .style("font-size", "24px")
+      .style("font-size", "22px")
       .style("font-weight", "bold")
-      .style("fill", "#7A7FEE")
+      .style("fill", "#3B82F6")
       .text(analysisData.totalSequences.toLocaleString());
 
     svg
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("dy", "1em")
-      .style("font-size", "14px")
+      .attr("dy", "1.2em")
+      .style("font-size", "13px")
       .style("fill", "#666")
       .text("Total Sequences");
   }, [isClient, analysisData.totalSequences]);

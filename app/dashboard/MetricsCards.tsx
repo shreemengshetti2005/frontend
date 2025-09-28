@@ -17,25 +17,25 @@ export default function MetricsCards({ analysisData }: MetricsCardsProps) {
       label: "Total Sequences",
       value: analysisData.totalSequences,
       icon: "🧬",
-      color: "bg-gradient-to-br from-[#7A7FEE] to-[#8B86FF]",
+      color: "bg-gradient-to-br from-[#0D3B66] to-[#145DA0]", // Deep Blue → Ocean Blue
     },
     {
       label: "Filtered Sequences",
       value: analysisData.filteredSequences,
       icon: "🔬",
-      color: "bg-gradient-to-br from-[#4ECDC4] to-[#5ED5CC]",
+      color: "bg-gradient-to-br from-[#145DA0] to-[#2E8BC0]", // Ocean Blue → Sea Cyan
     },
     {
       label: "Taxonomic Clusters",
       value: analysisData.taxonomicClusters,
-      icon: "🌿",
-      color: "bg-gradient-to-br from-[#FF6B6B] to-[#FF7F7F]",
+      icon: "🌊",
+      color: "bg-gradient-to-br from-[#2E8BC0] to-[#00C2CB]", // Cyan → Bioluminescent Glow
     },
     {
       label: "Novel Taxa",
       value: analysisData.novelTaxa,
-      icon: "⭐",
-      color: "bg-gradient-to-br from-[#45B7D1] to-[#5BC3D7]",
+      icon: "✨",
+      color: "bg-gradient-to-br from-[#0D3B66] to-[#2E8BC0]", // Deep Blue → Cyan
     },
   ];
 

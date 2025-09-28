@@ -54,11 +54,12 @@ export default function ClusterDetails({
             </tr>
           </thead>
           <tbody>
-            {clusterData.map((cluster, index) => (
+            {clusterData.map((cluster) => (
               <tr
                 key={cluster.id}
                 className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-[#111111] transition-colors"
               >
+                {/* Cluster Name */}
                 <td className="py-4 px-4">
                   <div className="font-medium text-gray-900 dark:text-white">
                     {cluster.name}
@@ -67,35 +68,43 @@ export default function ClusterDetails({
                     Cluster {cluster.id}
                   </div>
                 </td>
+
+                {/* Abundance */}
                 <td className="py-4 px-4">
-                  <div className="font-mono text-lg font-bold text-[#7A7FEE]">
+                  <div className="font-mono text-lg font-bold text-[#3B82F6]">
                     {cluster.abundance.toLocaleString()}
                   </div>
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1 mt-1">
                     <div
-                      className="bg-[#7A7FEE] h-1 rounded-full"
+                      className="bg-[#3B82F6] h-1 rounded-full"
                       style={{ width: `${(cluster.abundance / 1500) * 100}%` }}
                     ></div>
                   </div>
                 </td>
+
+                {/* Similarity */}
                 <td className="py-4 px-4">
                   <span className="font-mono font-bold text-gray-900 dark:text-white">
                     {cluster.similarity}%
                   </span>
                 </td>
+
+                {/* Novelty Status */}
                 <td className="py-4 px-4">
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-medium ${
                       cluster.novelty === "Novel"
-                        ? "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400"
+                        ? "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/20 dark:text-indigo-400"
                         : cluster.novelty === "Rare"
-                        ? "bg-orange-100 text-orange-800 dark:bg-orange-900/20 dark:text-orange-400"
-                        : "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                        ? "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/20 dark:text-cyan-400"
+                        : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-400"
                     }`}
                   >
                     {cluster.novelty}
                   </span>
                 </td>
+
+                {/* Conservation Priority */}
                 <td className="py-4 px-4">
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -122,14 +131,14 @@ export default function ClusterDetails({
           Cluster Relationships
         </h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {clusterData.slice(0, 4).map((cluster, index) => (
+          {clusterData.slice(0, 4).map((cluster) => (
             <div
               key={cluster.id}
-              className="p-4 bg-white dark:bg-[#1a1a1a] rounded-lg border-2 border-transparent hover:border-[#7A7FEE] transition-all cursor-pointer transform hover:scale-105"
+              className="p-4 bg-white dark:bg-[#1a1a1a] rounded-lg border-2 border-transparent hover:border-[#3B82F6] transition-all cursor-pointer transform hover:scale-105"
               onClick={() => setSelectedCluster(cluster)}
             >
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#7A7FEE] to-[#4ECDC4] flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] flex items-center justify-center text-white font-bold text-lg">
                   {cluster.id}
                 </div>
                 <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
@@ -144,9 +153,9 @@ export default function ClusterDetails({
         </div>
 
         {selectedCluster && (
-          <div className="mt-6 p-4 bg-[#7A7FEE]/10 rounded-lg border border-[#7A7FEE]/20">
+          <div className="mt-6 p-4 bg-[#3B82F6]/10 rounded-lg border border-[#3B82F6]/20">
             <div className="flex items-center justify-between mb-2">
-              <h5 className="font-semibold text-[#7A7FEE]">
+              <h5 className="font-semibold text-[#3B82F6]">
                 {selectedCluster.name}
               </h5>
               <button

@@ -22,11 +22,11 @@ export default function ConservationAlerts({
   const novelSpecies = clusterData.filter((c) => c.novelty === "Novel").length;
 
   return (
-    <div className="mt-8 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl shadow-lg p-6 text-white">
+    <div className="mt-8 bg-gradient-to-r from-[#EF4444] via-[#7A7FEE] to-[#4ECDC4] rounded-2xl shadow-lg p-6 text-white">
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold mb-2 flex items-center">
-            <span className="mr-2">⚠️</span>
+            <span className="mr-2 text-red-300">⚠️</span>
             Conservation Alerts
           </h3>
           <p className="text-white/90">
