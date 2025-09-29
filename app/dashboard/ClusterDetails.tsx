@@ -13,7 +13,7 @@ interface SpeciesAnalysisProps {
   isClient: boolean;
   speciesData?: SpeciesData[];
   selectedSpecies: SpeciesData | null;
-  setSelectedSpecies: (species: SpeciesData | null) => void;
+  setSelectedSpecies: (species: SpeciesData  null) => void;
 }
 
 // Default data with the requested species
