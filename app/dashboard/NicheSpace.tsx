@@ -112,14 +112,14 @@ export default function NicheSpace({ isClient, novelSpecies }: NicheSpaceProps) 
             taxonomicGroup: 'Viruses',
             description: 'Host-dependent RNA viruses'
         },
-        // From Unknown Bacteria
+        // From Unknown Bacteria (now novel)
         {
             id: 'unknown_bacteria',
-            name: 'Unknown Bacteria',
+            name: 'Novel',
             trophicRole: 3.5,
             hostAssociation: 2.5,
             color: '#D97706',
-            isNovel: false,
+            isNovel: true, // Changed to true
             taxonomicGroup: 'Unclassified',
             description: 'Uncharacterized bacterial sequences'
         }
@@ -243,13 +243,13 @@ export default function NicheSpace({ isClient, novelSpecies }: NicheSpaceProps) 
                     .style("z-index", "1000")
                     .style("box-shadow", "0 8px 32px rgba(0,0,0,0.3)")
                     .html(`
-            <div><strong>${d.name}</strong></div>
-            <div style="margin: 4px 0; color: #94a3b8;">${d.taxonomicGroup}</div>
-            <div>Trophic Role: ${d.trophicRole}</div>
-            <div>Host Association: ${d.hostAssociation}</div>
-            ${d.confidence ? `<div style="color: #60a5fa;">Confidence: ${(d.confidence * 100).toFixed(1)}%</div>` : ''}
-            ${d.isNovel ? '<div style="color: #f87171; margin-top: 6px;">★ Novel Species</div>' : ''}
-          `)
+<div><strong>${d.name}</strong></div>
+<div style="margin: 4px 0; color: #94a3b8;">${d.taxonomicGroup}</div>
+<div>Trophic Role: ${d.trophicRole}</div>
+<div>Host Association: ${d.hostAssociation}</div>
+${d.confidence ? `<div style="color: #60a5fa;">Confidence: ${(d.confidence * 100).toFixed(1)}%</div>` : ''}
+${d.isNovel ? '<div style="color: #f87171; margin-top: 6px;">★ Novel Species</div>' : ''}
+`)
                     .style("left", event.pageX + 10 + "px")
                     .style("top", event.pageY - 10 + "px");
             })
@@ -274,7 +274,7 @@ export default function NicheSpace({ isClient, novelSpecies }: NicheSpaceProps) 
             .style('font-weight', d => d.isNovel ? '700' : '600')
             .style('fill', d => d.isNovel ? '#dc2626' : '#1f2937')
             .style('pointer-events', 'none')
-            .text(d => d.name);
+            .text(d => d.isNovel ? `★ ${d.name}` : d.name);
 
         // Add axes with better styling
         const xAxis = svg.append("g")
@@ -378,10 +378,10 @@ export default function NicheSpace({ isClient, novelSpecies }: NicheSpaceProps) 
                         <div
                             key={index}
                             className={`flex items-center space-x-3 p-3 rounded-xl cursor-pointer transition-all duration-200 ${
-                                selectedSpecies?.id === species.id
-                                    ? 'bg-gray-100 dark:bg-[#2a2a2a] border-2 border-gray-300 dark:border-gray-600'
-                                    : 'bg-gray-50 dark:bg-[#111111] hover:bg-gray-100 dark:hover:bg-[#2a2a2a]'
-                            }`}
+    selectedSpecies?.id === species.id
+        ? 'bg-gray-100 dark:bg-[#2a2a2a] border-2 border-gray-300 dark:border-gray-600'
+        : 'bg-gray-50 dark:bg-[#111111] hover:bg-gray-100 dark:hover:bg-[#2a2a2a]'
+}`}
                             onClick={() => setSelectedSpecies(species)}
                         >
                             <div
@@ -409,10 +409,10 @@ export default function NicheSpace({ isClient, novelSpecies }: NicheSpaceProps) 
                             </div>
                             <div
                                 className={`flex items-center space-x-3 p-3 rounded-xl cursor-pointer transition-all duration-200 border-2 border-red-200 dark:border-red-800 ${
-                                    selectedSpecies?.id === novelSpecies.id
-                                        ? 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600'
-                                        : 'bg-red-25 dark:bg-red-900/10 hover:bg-red-50 dark:hover:bg-red-900/20'
-                                }`}
+    selectedSpecies?.id === novelSpecies.id
+        ? 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600'
+        : 'bg-red-25 dark:bg-red-900/10 hover:bg-red-50 dark:hover:bg-red-900/20'
+}`}
                                 onClick={() => setSelectedSpecies(novelSpecies)}
                             >
                                 <div

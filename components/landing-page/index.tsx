@@ -3,7 +3,6 @@ import Hero from "./hero";
 import Projects from "./projects";
 import Services from "./services";
 import Faq from "./faq";
-import CallToAction from "./call-to-action";
 import Footer from "./footer";
 import ContactFormButton from "./contact-form-button";
 import StartProject from "./start-project";
@@ -16,7 +15,6 @@ export {
   Projects,
   Services,
   Faq,
-  CallToAction,
   Footer,
   ContactFormButton,
   StartProject,
@@ -36,7 +34,6 @@ export default function LandingPage({
         <Projects />
 
         <Faq />
-        <CallToAction />
       </div>
       {showFooter && <Footer />}
     </main>

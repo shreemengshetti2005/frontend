@@ -135,7 +135,6 @@ export default function DashboardPage() {
                     {activeTab === "diversity" && (
                         <NicheSpace
                             isClient={isClient}
-                            analysisData={analysisData}
                         />
                     )}
 
