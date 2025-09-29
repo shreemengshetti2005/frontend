@@ -7,8 +7,8 @@ import NovelSpeciesBanner from "./NovelSpeciesBanner";
 import NavigationTabs from "./NavigationTabs";
 import ExportFooter from "./ExportFooter";
 import TaxonomicOverview from "./TaxonomicOverview";
-import DiversityAnalysis from "./DiversityAnalysis";
-import TemporalTrends from "./TemporalTrends";
+import NicheSpace from "./NicheSpace";
+import DivergencePath from "./DivergencePath";
 import ClusterDetails from "./ClusterDetails";
 import PredictedTraits from "./PredictedTraits";
 import PhylogeneticTree from "./PhylogeneticTree"
@@ -133,13 +133,13 @@ export default function DashboardPage() {
                     )}
 
                     {activeTab === "diversity" && (
-                        <DiversityAnalysis
+                        <NicheSpace
                             isClient={isClient}
                             analysisData={analysisData}
                         />
                     )}
 
-                    {activeTab === "timeline" && <TemporalTrends isClient={isClient}/>}
+                    {activeTab === "timeline" && <DivergencePath isClient={isClient}/>}
 
                     {activeTab === "clusters" && (
                         <ClusterDetails

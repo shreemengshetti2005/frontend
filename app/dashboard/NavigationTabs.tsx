@@ -20,8 +20,8 @@ export default function NavigationTabs({
                                        }: NavigationTabsProps) {
     const tabs = [
         { id: "overview", label: "Taxonomic Overview", Icon: BarChart3 },
-        { id: "diversity", label: "Diversity Analysis", Icon: LineChart },
-        { id: "timeline", label: "Temporal Trends", Icon: Clock3 },
+        { id: "diversity", label: "Niche Space", Icon: LineChart },
+        { id: "timeline", label: "Divergence Path", Icon: Clock3 },
         { id: "clusters", label: "Cluster Details", Icon: Layers3 },
         { id: "novel", label: "Predicted Traits", Icon: Dna },
         { id: "phylo", label: "Phylogenetic Tree", Icon: TreePine },
