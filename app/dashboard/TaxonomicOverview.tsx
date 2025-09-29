@@ -35,7 +35,7 @@ export default function TaxonomicOverview({
     {
       name: "Bacteria",
       value: 98.5,
-      color: "#3B82F6", // Bright Blue
+      color: "#3B82F6",
       children: [
         { name: "Proteobacteria", value: 99.2, color: "#1E40AF" },
         { name: "Firmicutes", value: 98.8, color: "#2563EB" },
@@ -45,7 +45,7 @@ export default function TaxonomicOverview({
     {
       name: "Archaea",
       value: 96.8,
-      color: "#EF4444", // Bright Red
+      color: "#EF4444",
       children: [
         { name: "Euryarchaeota", value: 97.3, color: "#DC2626" },
         { name: "Thaumarchaeota", value: 96.2, color: "#F87171" },
@@ -54,7 +54,7 @@ export default function TaxonomicOverview({
     {
       name: "Eukaryota",
       value: 94.2,
-      color: "#10B981", // Emerald Green
+      color: "#10B981",
       children: [
         { name: "Fungi", value: 95.1, color: "#059669" },
         { name: "Protists", value: 93.3, color: "#34D399" },
@@ -63,7 +63,7 @@ export default function TaxonomicOverview({
     {
       name: "Viruses",
       value: 89.3,
-      color: "#8B5CF6", // Purple
+      color: "#8B5CF6",
       children: [
         { name: "DNA Viruses", value: 90.7, color: "#7C3AED" },
         { name: "RNA Viruses", value: 87.9, color: "#A78BFA" },
@@ -72,7 +72,7 @@ export default function TaxonomicOverview({
     {
       name: "Unclassified",
       value: 85.1,
-      color: "#F59E0B", // Amber/Orange
+      color: "#F59E0B",
       children: [
         { name: "Unknown Bacteria", value: 86.4, color: "#D97706" },
         { name: "Novel Sequences", value: 83.8, color: "#FCD34D" },
@@ -80,39 +80,31 @@ export default function TaxonomicOverview({
     },
   ];
 
-  // Function to calculate area distribution based on ranking
   const calculateRankingBasedAreas = (data: TaxonomicItem[]) => {
-    // Sort by similarity score (descending) to establish ranking
     const sortedData = [...data].sort((a, b) => b.value - a.value);
-    
-    // Assign ranking-based weights using inverse ranking formula
     const totalRanks = sortedData.length;
     const rankWeights = sortedData.map((_, index) => {
       const rank = index + 1;
       return Math.pow(totalRanks - rank + 1, 1.5);
     });
-    
     const totalWeight = rankWeights.reduce((sum, weight) => sum + weight, 0);
-    
-    // Calculate percentage areas based on weights
     return sortedData.map((item, index) => ({
       ...item,
       rank: index + 1,
       areaPercentage: (rankWeights[index] / totalWeight) * 100,
-      pieValue: rankWeights[index]
+      pieValue: rankWeights[index],
     }));
   };
 
-  // Multi-layer Donut Chart
   useEffect(() => {
     if (!sunburstRef.current || !isClient) return;
 
     const container = d3.select(sunburstRef.current);
     container.selectAll("*").remove();
 
-    const width = 500;
-    const height = 500;
-    const radius = Math.min(width, height) / 2 - 20;
+    const width = 700;
+    const height = 700;
+    const radius = Math.min(width, height) / 2 - 120;
 
     const svg = container
       .append("svg")
@@ -121,28 +113,27 @@ export default function TaxonomicOverview({
       .append("g")
       .attr("transform", `translate(${width / 2},${height / 2})`);
 
-    // Calculate ranking-based areas
     const rankedData = calculateRankingBasedAreas(taxonomicData);
 
-    // Create pie generator for main categories
-    const mainPie = d3.pie<any>()
+    const mainPie = d3
+      .pie<any>()
       .value((d: any) => d.pieValue)
       .sort(null)
       .padAngle(0.005);
 
-    // Inner ring arc generator
-    const innerArc = d3.arc<d3.PieArcDatum<any>>()
+    const innerArc = d3
+      .arc<d3.PieArcDatum<any>>()
       .innerRadius(0)
       .outerRadius(radius * 0.65);
 
-    // Outer ring arc generator
-    const outerArc = d3.arc<d3.PieArcDatum<any>>()
+    const outerArc = d3
+      .arc<d3.PieArcDatum<any>>()
       .innerRadius(radius * 0.65)
       .outerRadius(radius * 1.0);
 
     const mainPieData = mainPie(rankedData);
 
-    // Draw inner ring (main categories)
+    // Draw inner ring
     const innerSegments = svg
       .selectAll(".inner-segment")
       .data(mainPieData)
@@ -155,49 +146,49 @@ export default function TaxonomicOverview({
       .style("stroke-width", 1.5)
       .style("opacity", 0.9);
 
-    // Prepare data for outer ring (subcategories)
+    // Prepare outer ring data
     const outerRingData: any[] = [];
-    let cumulativeAngle = 0;
-
     mainPieData.forEach((parentSegment: any) => {
       const parent = parentSegment.data;
       const parentAngleSpan = parentSegment.endAngle - parentSegment.startAngle;
-      
+
       if (parent.children && parent.children.length > 0) {
-        // Calculate total value of children for proportional distribution
-        const totalChildValue = parent.children.reduce((sum: number, child: any) => sum + child.value, 0);
-        
-        // Sort children by similarity score to determine color intensity
-        const sortedChildren = [...parent.children].sort((a: any, b: any) => b.value - a.value);
+        const totalChildValue = parent.children.reduce(
+          (sum: number, child: any) => sum + child.value,
+          0
+        );
+        const sortedChildren = [...parent.children].sort(
+          (a: any, b: any) => b.value - a.value
+        );
         const maxChildValue = sortedChildren[0].value;
         const minChildValue = sortedChildren[sortedChildren.length - 1].value;
-        
+
         let childStartAngle = parentSegment.startAngle;
-        
+
         parent.children.forEach((child: any) => {
-          // Calculate proportional angle for this child within parent's span
           const childProportion = child.value / totalChildValue;
           const childAngleSpan = parentAngleSpan * childProportion;
           const childEndAngle = childStartAngle + childAngleSpan;
-          
-          // Calculate color intensity based on similarity score
-          const intensityFactor = (child.value - minChildValue) / (maxChildValue - minChildValue);
-          const darkerColor = d3.color(child.color)?.darker(0.5 + intensityFactor * 0.8) || child.color;
-          
+          const intensityFactor =
+            (child.value - minChildValue) / (maxChildValue - minChildValue);
+          const darkerColor =
+            d3.color(child.color)?.darker(0.5 + intensityFactor * 0.8) ||
+            child.color;
+
           outerRingData.push({
             data: child,
             startAngle: childStartAngle,
             endAngle: childEndAngle,
             parentData: parent,
-            adjustedColor: darkerColor
+            adjustedColor: darkerColor,
           });
-          
+
           childStartAngle = childEndAngle;
         });
       }
     });
 
-    // Draw outer ring (subcategories)
+    // Draw outer ring
     const outerSegments = svg
       .selectAll(".outer-segment")
       .data(outerRingData)
@@ -210,90 +201,228 @@ export default function TaxonomicOverview({
       .style("stroke-width", 0.8)
       .style("opacity", 0.85);
 
-    // Add hover effects for inner ring
+    // Add labels with leader lines for outer ring (subcategories)
+    const labelGroup = svg.append("g").attr("class", "labels");
+
+    // Separate labels into left and right sides for better collision detection
+    const leftLabels: any[] = [];
+    const rightLabels: any[] = [];
+
+    outerRingData.forEach((d: any, i: number) => {
+      const centroid = outerArc.centroid(d);
+      const midAngle = (d.startAngle + d.endAngle) / 2;
+      const isRightSide = midAngle < Math.PI;
+
+      const labelData = {
+        data: d,
+        centroid,
+        midAngle,
+        isRightSide,
+        y: Math.sin(midAngle - Math.PI / 2) * radius * 1.35,
+      };
+
+      if (isRightSide) {
+        rightLabels.push(labelData);
+      } else {
+        leftLabels.push(labelData);
+      }
+    });
+
+    // Sort labels by vertical position
+    leftLabels.sort((a, b) => a.y - b.y);
+    rightLabels.sort((a, b) => a.y - b.y);
+
+    // Adjust label positions to prevent overlap
+    const adjustLabelPositions = (labels: any[], minSpacing: number) => {
+      for (let i = 1; i < labels.length; i++) {
+        const current = labels[i];
+        const previous = labels[i - 1];
+
+        if (current.y - previous.y < minSpacing) {
+          current.y = previous.y + minSpacing;
+        }
+      }
+    };
+
+    adjustLabelPositions(leftLabels, 35);
+    adjustLabelPositions(rightLabels, 35);
+
+    // Draw labels for both sides
+    const drawLabels = (labels: any[]) => {
+      labels.forEach((labelData: any) => {
+        const { data: d, centroid, midAngle, isRightSide, y } = labelData;
+        const x = Math.cos(midAngle - Math.PI / 2) * radius * 1.35;
+
+        const textAnchor = isRightSide ? "start" : "end";
+        const textX = isRightSide ? x + 15 : x - 15;
+
+        // Calculate smooth curved path for leader line
+        const outerPoint = outerArc.centroid(d);
+        const bendPoint = [
+          Math.cos(midAngle - Math.PI / 2) * radius * 1.15,
+          Math.sin(midAngle - Math.PI / 2) * radius * 1.15,
+        ];
+        const endPoint = [textX - (isRightSide ? 5 : -5), y];
+
+        // Create a smooth path using cubic bezier
+        const pathData = `
+          M ${outerPoint[0]},${outerPoint[1]}
+          L ${bendPoint[0]},${bendPoint[1]}
+          L ${endPoint[0]},${endPoint[1]}
+        `;
+
+        labelGroup
+          .append("path")
+          .datum(d)
+          .attr("d", pathData)
+          .style("fill", "none")
+          .style("stroke", d.data.color)
+          .style("stroke-width", 1.2)
+          .style("opacity", 0.6);
+
+        // Add label text
+        const text = labelGroup
+          .append("text")
+          .datum(d)
+          .attr("x", textX)
+          .attr("y", y)
+          .attr("text-anchor", textAnchor)
+          .style("font-size", "14px")
+          .style("font-weight", "600")
+          .style("fill", "#e5e7eb")
+          .style("pointer-events", "none");
+
+        text.append("tspan").text(d.data.name).attr("x", textX).attr("dy", "0");
+
+        text
+          .append("tspan")
+          .text(`${d.data.value}%`)
+          .attr("x", textX)
+          .attr("dy", "1.2em")
+          .style("font-size", "12px")
+          .style("fill", "#9ca3af");
+      });
+    };
+
+    drawLabels(leftLabels);
+    drawLabels(rightLabels);
+
+    // Hover effects for inner ring
     innerSegments
       .on("mouseover", function (event: any, d: any) {
-        d3.select(this).style("opacity", 1);
-        
-        // Highlight corresponding outer segments
-        outerSegments
-          .style("opacity", (od: any) => od.parentData.name === d.data.name ? 1 : 0.3);
-        
-        const tooltip = container
-          .append("div")
-          .attr("class", "tooltip")
-          .style("position", "absolute")
-          .style("background", "rgba(0,0,0,0.9)")
-          .style("color", "white")
-          .style("padding", "12px 16px")
-          .style("border-radius", "8px")
-          .style("font-size", "13px")
-          .style("font-weight", "500")
-          .style("pointer-events", "none")
-          .style("z-index", "1000")
-          .style("box-shadow", "0 8px 32px rgba(0,0,0,0.3)")
-          .html(`
-            <div><strong>${d.data.name}</strong></div>
-            <div>Similarity: ${d.data.value}%</div>
-            <div>Rank: #${d.data.rank}</div>
-          `)
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px");
+        d3.select(this).style("opacity", 1).style("cursor", "pointer");
+        outerSegments.style("opacity", (od: any) =>
+          od.parentData.name === d.data.name ? 1 : 0.3
+        );
+
+        // Highlight corresponding outer ring labels
+        labelGroup
+          .selectAll("path")
+          .style("opacity", function (this: any) {
+            const polylineData = d3.select(this).datum();
+            return polylineData &&
+              polylineData.parentData &&
+              polylineData.parentData.name === d.data.name
+              ? 0.9
+              : 0.15;
+          })
+          .style("stroke-width", function (this: any) {
+            const polylineData = d3.select(this).datum();
+            return polylineData &&
+              polylineData.parentData &&
+              polylineData.parentData.name === d.data.name
+              ? 2
+              : 1.2;
+          });
+
+        labelGroup.selectAll("text").style("opacity", function (this: any) {
+          const textData = d3.select(this).datum();
+          return textData &&
+            textData.parentData &&
+            textData.parentData.name === d.data.name
+            ? 1
+            : 0.3;
+        });
       })
       .on("mouseout", function () {
         d3.select(this).style("opacity", 0.9);
         outerSegments.style("opacity", 0.85);
-        container.selectAll(".tooltip").remove();
+        labelGroup
+          .selectAll("path")
+          .style("opacity", 0.6)
+          .style("stroke-width", 1.2);
+        labelGroup.selectAll("text").style("opacity", 1);
       });
 
-    // Add hover effects for outer ring
+    // Hover effects for outer ring with detailed tooltip and label highlighting
     outerSegments
       .on("mouseover", function (event: any, d: any) {
-        d3.select(this).style("opacity", 1);
-        
+        d3.select(this).style("opacity", 1).style("cursor", "pointer");
+
+        // Highlight this segment's label
+        labelGroup
+          .selectAll("path")
+          .style("opacity", function (ld: any) {
+            return ld === d ? 0.9 : 0.15;
+          })
+          .style("stroke-width", function (ld: any) {
+            return ld === d ? 2 : 1.2;
+          });
+
+        labelGroup.selectAll("text").style("opacity", function (ld: any) {
+          return ld === d ? 1 : 0.3;
+        });
+
         const tooltip = container
           .append("div")
           .attr("class", "tooltip")
           .style("position", "absolute")
-          .style("background", "rgba(0,0,0,0.9)")
+          .style("background", "rgba(0,0,0,0.95)")
           .style("color", "white")
-          .style("padding", "12px 16px")
-          .style("border-radius", "8px")
+          .style("padding", "14px 18px")
+          .style("border-radius", "10px")
           .style("font-size", "13px")
           .style("font-weight", "500")
           .style("pointer-events", "none")
           .style("z-index", "1000")
-          .style("box-shadow", "0 8px 32px rgba(0,0,0,0.3)")
-          .html(`
-            <div><strong>${d.data.name}</strong></div>
-            <div>Parent: ${d.parentData.name}</div>
-            <div>Similarity: ${d.data.value}%</div>
-          `)
-          .style("left", event.pageX + 10 + "px")
+          .style("box-shadow", "0 10px 40px rgba(0,0,0,0.4)")
+          .style("border", `2px solid ${d.data.color}`)
+          .html(
+            `
+            <div style="font-size: 15px; font-weight: 700; margin-bottom: 8px;">${d.data.name}</div>
+            <div style="color: #94a3b8; margin-bottom: 4px;">Parent: ${d.parentData.name}</div>
+            <div style="font-size: 14px; color: #60a5fa;">Similarity: ${d.data.value}%</div>
+          `
+          )
+          .style("left", event.pageX + 15 + "px")
           .style("top", event.pageY - 10 + "px");
       })
       .on("mouseout", function () {
         d3.select(this).style("opacity", 0.85);
+        labelGroup
+          .selectAll("path")
+          .style("opacity", 0.6)
+          .style("stroke-width", 1.2);
+        labelGroup.selectAll("text").style("opacity", 1);
         container.selectAll(".tooltip").remove();
       });
-
   }, [isClient, analysisData.totalSequences]);
 
-  // Calculate ranked data for display
   const rankedDisplayData = calculateRankingBasedAreas(taxonomicData);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Multi-layer Donut Chart */}
       <div className="lg:col-span-2 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-8">
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
           <Target className="mr-3 h-6 w-6" />
           Similarity Analysis
         </h3>
-        <div ref={sunburstRef} className="flex justify-center items-center min-h-[500px]"></div>
+        <div
+          ref={sunburstRef}
+          className="flex justify-center items-center"
+        ></div>
       </div>
 
-      {/* Color Legend */}
       <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
           <Trophy className="mr-2 h-5 w-5" />
@@ -303,8 +432,8 @@ export default function TaxonomicOverview({
           {rankedDisplayData.map((group, index) => (
             <div key={index} className="space-y-3">
               <div className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-[#111111] rounded-lg">
-                <div 
-                  className="w-4 h-4 rounded-full shadow-sm" 
+                <div
+                  className="w-4 h-4 rounded-full shadow-sm"
                   style={{ backgroundColor: group.color }}
                 ></div>
                 <div className="flex-1">
@@ -324,12 +453,17 @@ export default function TaxonomicOverview({
               {group.children && (
                 <div className="ml-4 space-y-2">
                   {group.children.map((child, childIndex) => (
-                    <div key={childIndex} className="flex items-center space-x-2 text-xs">
-                      <div 
-                        className="w-3 h-3 rounded-full" 
+                    <div
+                      key={childIndex}
+                      className="flex items-center space-x-2 text-xs"
+                    >
+                      <div
+                        className="w-3 h-3 rounded-full"
                         style={{ backgroundColor: child.color }}
                       ></div>
-                      <span className="text-gray-700 dark:text-gray-300">{child.name}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {child.name}
+                      </span>
                       <span className="text-gray-500 dark:text-gray-400">
                         ({child.value}%)
                       </span>
