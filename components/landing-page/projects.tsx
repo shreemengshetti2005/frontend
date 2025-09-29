@@ -3,63 +3,63 @@
 import React from "react";
 
 const reasons = [
-  {
-    id: 1,
-    title: "Lightning Speed",
-    subtitle: "Blazing Fast Performance",
-    description: "Experience unprecedented speed with our optimized AI algorithms that deliver results in milliseconds, not minutes.",
-    iconSvg: (
-      <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    color: "from-[#7A7FEE] to-[#9D7FEE]",
-    bgPattern: "bg-gradient-to-bl",
-  },
-  {
-    id: 2,
-    title: "Precision Accuracy",
-    subtitle: "99.9% Accurate Results",
-    description: "Our advanced machine learning models ensure exceptional accuracy with continuous learning and refinement.",
-    iconSvg: (
-      <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
-    color: "from-[#9D7FEE] to-[#7A7FEE]",
-    bgPattern: "bg-gradient-to-bl",
-  },
-  {
-    id: 3,
-    title: "Smart Visualization",
-    subtitle: "Crystal Clear Insights",
-    description: "Transform complex data into beautiful, interactive visuals. See insights instantly, clearly, and effortlessly.",
-    iconSvg: (
-      <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-        <circle cx="12" cy="12" r="3" />
-      </svg>
-    ),
-    color: "from-[#7A7FEE] to-[#C77FEE]",
-    bgPattern: "bg-gradient-to-br",
-  },
-  {
-    id: 4,
-    title: "Instant Downloads",
-    subtitle: "One-Click Export",
-    description: "Download your results, reports, and data in multiple formats instantly with our seamless export system.",
-    iconSvg: (
-      <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-        <polyline points="7,10 12,15 17,10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-    ),
-    color: "from-[#C77FEE] to-[#7A7FEE]",
-    bgPattern: "bg-gradient-to-br",
-  },
+    {
+        id: 1,
+        title: "Hybrid AI Approach",
+        subtitle: "First of Its Kind Solution",
+        description: "Combines deep learning embeddings with unsupervised clustering to discover novel species before database lookup, solving the incomplete reference database challenge.",
+        iconSvg: (
+            <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        ),
+        color: "from-[#7A7FEE] to-[#9D7FEE]",
+        bgPattern: "bg-gradient-to-bl",
+    },
+    {
+        id: 2,
+        title: "Computational Efficiency",
+        subtitle: "Intelligent Processing",
+        description: "Replaces exhaustive alignments with fast vector searches using Milvus and targeted BLAST on cluster representatives, significantly reducing computational time and resources.",
+        iconSvg: (
+            <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+            </svg>
+        ),
+        color: "from-[#9D7FEE] to-[#7A7FEE]",
+        bgPattern: "bg-gradient-to-bl",
+    },
+    {
+        id: 3,
+        title: "Novel Species Discovery",
+        subtitle: "Database Agnostic Analysis",
+        description: "Identifies and characterizes new species that don't exist in current databases, eliminating unassigned reads and providing complete deep sea biodiversity insights.",
+        iconSvg: (
+            <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+            </svg>
+        ),
+        color: "from-[#7A7FEE] to-[#C77FEE]",
+        bgPattern: "bg-gradient-to-br",
+    },
+    {
+        id: 4,
+        title: "Self-Improving System",
+        subtitle: "Progressive Intelligence",
+        description: "Integrates new discoveries back into the database, making the pipeline progressively smarter and more accurate with each analysis cycle.",
+        iconSvg: (
+            <svg className="w-6 h-6 text-white stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7,10 12,15 17,10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+        ),
+        color: "from-[#C77FEE] to-[#7A7FEE]",
+        bgPattern: "bg-gradient-to-br",
+    },
 ];
 
 export default function WhyChooseUs() {
