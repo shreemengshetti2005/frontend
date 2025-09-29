@@ -31,62 +31,65 @@ TTCCAAAGGTTGACCTCGGATCAGGTAGGAATACCCGCTGAACTTAAGCATATCAATAAGCGGAGGA`,
         ]
     },
     {
-        id: "NR_172389.1",
-        name: "Fusarium ventricosum NRRL 20846",
-        sequence: `TCTCCGTTGGTGAACCAGCGGAGGGATCATTACCGAGTTTACAACTCCCAAACCCATGTGAACATACCTTTAAACGTTGC
-CTCGGCGGGAACCGATCGCCCCGTAACAAGGGCCGGCCCGCCAGAGGACCCCCAAACTCTTGTATTATTTGGTATCCTCT
-GAGTAAACAAGCAAAATAAATCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGC
-GATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCGCCAGTATTCTGGCGGGC
-ATGCCTGTCCGAGCGTCATTTCAACCCTCGAGCCCCCGGGCTTGGTGTTGGGGATCGGCGCCGCCTCCGTGCGGCCCGCC
-GGCCCCGAAATCTAGTGGCGGTCTCGCTGCAGCCTCCTCTGCGTAGTAGAAACACCTCGCACTGGAACGCGGCGCGGCCA
-CGCCGTTAAACAACCCACTATATCCAAAGGTTGACCTCGGATCAGGTAGGAATACCCGCTGAACT`,
-        confidence: 99.2,
+        id: "NR_137780.1",
+        name: "Phaeoacremonium minimum CBS 100398",
+        sequence: `GTAGTCGTAGGGTCTCCGTTGGTGAACCAGCGGAGGGATCATTAACGAGTTTCGTACTCCAAACCCTTTGTGAACATAC
+CTGTTTTCGTTGCTTCGGCAGGTGAGAGCGGACGCTCCGGGCCTGAAGCCGCCGCCGGCCGCCTCTCGCGGGGCGGCCGG
+GTGGGCCTGCCGGAGGGCACAGACTCTGTATTACATAACGTACCTCTCTGAGTTATATTTTACAAACAAGTAAAAACTTT
+CAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTG
+AATCATCGAATCTTTGAACGCACATTGCGCCCGCCAGTATTCTGGCGGGCATGCCTGTCCGAGCGTCATTTCAACCCTC
+AGGCCCTGGTTGCCTGGTGTTGGGGCGCCGCGCACCCTCAGCGGGCCGCGGGCCCCGAAAGTCAGTGGCGGGCTCGCCA
+GGACTCCGAGCGCAGTAATTCTCTCTCGCTGTGGAGCGCCTGGTGGGTTTTACCAGCCGTAAAACACCCCAACTTCCAA
+AGGTTGACCTCGGATCAGGTAGGAATACCCGCTGAACTTAAGCATATCAATAAGCGGAGGA`,
+        confidence: 99.3,
         taxonomy: {
             kingdom: "Fungi",
             phylum: "Ascomycota",
             class: "Sordariomycetes",
-            order: "Hypocreales",
-            family: "Nectriaceae",
-            genus: "Fusarium",
-            species: "F. ventricosum"
+            order: "Togniniales",
+            family: "Togniniaceae",
+            genus: "Phaeoacremonium",
+            species: "P. minimum"
         },
         insights: [
-            "Member of the Fusarium ventricosum species complex with ~37 Mbp genome, well assembled with few scaffolds.",
-            "Soil-dwelling fungus, sometimes endophytic; associated with plant roots.",
-            "Genus Fusarium often causes root rots and produces mycotoxins; F. ventricosum may play similar pathogenic or saprophytic roles.",
-            "Represents an early-diverging Fusarium lineage, important for understanding genus evolution.",
-            "Genome sequencing shows high coverage (~40×), low gap count, useful for comparative genomics.",
-            "Potential to produce unique secondary metabolites and insights into mycotoxin biosynthesis.",
-            "Morphological identification is unreliable; requires molecular markers due to species complexes."
+            "One of the primary agents of Petri disease and Esca, major grapevine trunk diseases worldwide.",
+            "Known as an opportunistic human pathogen, causing phaeohyphomycosis, particularly in immunocompromised individuals.",
+            "Characterized by slow-growing, flat, and often slimy colonies that range from pinkish-buff to grey.",
+            "Produces three types of phialides (Type I, II, III), a key morphological feature for identification.",
+            "Frequently isolated from discolored vascular tissues of infected grapevines.",
+            "Its genome has been sequenced to better understand its pathogenicity and mechanisms for wood degradation.",
+            "Like other Phaeoacremonium species, its identification relies on a combination of morphology and multi-locus sequence analysis (ITS, actin, β-tubulin)."
         ]
     },
     {
-        id: "NR_155862.1",
-        name: "Stagonospora bicolor ATCC 42652",
-        sequence: `TAGGTGAACCTGCGGAAGGATCATTAATTACGCAAGCTATAGCCCCGAAAGGGGTTATTGCATCCACCCTTTGTCTACTT
-GTACCTCTTGTTGTTTCCTCGGCAGGCTTGCCTGCCGCTAGGGAACCCCACAAACCCTTGTATTTAAAGTATCAAAATCT
-CTGATAACTATTTAAATTATTACAACTTTCAACAATGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCG
-AAAAGTAGTGTGAATTGCAGAATTCCGTGAATCATCGAATCTTTGAACGCACATTGCGCCCCTCGGTATTCCGTGGGGCA
-TGCCTGTTCGAGCGTCATTTACACCCTCAAGCTCTGCTTGGTGTTGGGCGTCTGTCCCGCTTTCTGCGTGGACTCGCCCC
-AAAGTCATTGGCAGCGGTCGTGCCAGCTTCTCACGCAGCACATTTGCGTTTCTTGAAGTTTGGTGGATCAGCATCCAGTA`,
-        confidence: 98.9,
+        id: "NR_154406.1",
+        name: "Phaeoacremonium aleophilum CBS 246.91",
+        sequence: `GTAAAAGTCGTAACAAGGTCTCCGTTGGTGAACCAGCGGAGGGATCATTAACGAGTTTCGTACTCCAAACCCTTTGTGA
+ACATACCTGTTTTCGTTGCTTCGGCAGGTGAGAGCGGACGCTCCGGGCCTGAAGCCGCCGCCGGCCGCCTCTCGCGGGGC
+GGCCGGGTGGGCCTGCCGGAGGGCACAGACTCTGTATTACATAACGTACCTCTCTGAGTTATATTTTACAAACAAGTAAA
+AACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAAT
+TCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCGCCAGTATTCTGGCGGGCATGCCTGTCCGAGCGTCATTTCA
+ACCCTCAGGCCCTGGTTGCCTGGTGTTGGGGCGCCGCGCACCCTCAGCGGGCCGCGGGCCCCGAAAGTCAGTGGCGGGC
+TCGCCAGGACTCCGAGCGCAGTAATTCTCTCTCGCTGTGGAGCGCCTGGTGGGTTTTACCAGCCGTAAAACACCCCAAC
+TTCCAAAGGTTGACCTCGGATCAGGTAGGAATACCCGCTGAACTTAAGCATATCAATAAGCGGAGGAAA`,
+        confidence: 99.0,
         taxonomy: {
             kingdom: "Fungi",
             phylum: "Ascomycota",
-            class: "Dothideomycetes",
-            order: "Pleosporales",
-            family: "Didymellaceae",
-            genus: "Stagonospora",
-            species: "S. bicolor"
+            class: "Sordariomycetes",
+            order: "Togniniales",
+            family: "Togniniaceae",
+            genus: "Phaeoacremonium",
+            species: "P. aleophilum"
         },
         insights: [
-            "Identified by ITS sequence from type material, providing reliable phylogenetic anchor.",
-            "Likely associated with grasses or cereals as many Stagonospora species are.",
-            "Genus includes pathogens causing leaf spots and blights in cereals, reducing yield.",
-            "Acts as plant pathogen or decomposer, contributing to nutrient cycling.",
-            "Morphological traits often overlap among species, making molecular confirmation important.",
-            "Type sequence contributes to phylogenetic clarity within Stagonospora.",
-            "Understanding infection cycles aids in crop protection and fungicide development."
+            "A key pathogen involved in the Esca disease complex, which causes chronic and acute decline of grapevines.",
+            "Originally described as Phialophora aleophilum before being reclassified into the Phaeoacremonium genus.",
+            "Often found in co-infection with other fungi like Fomitiporia mediterranea to cause the full symptoms of Esca.",
+            "Produces adelophialides with distinct, flaring collarettes, a useful microscopic identification feature.",
+            "Colonies are typically felt-like to suede-like, pale brown to greyish, and grow slowly on standard media.",
+            "Can cause subcutaneous abscesses and other infections in humans, highlighting its role as an opportunistic pathogen.",
+            "Its ability to produce wood-degrading enzymes allows it to colonize and destroy the xylem of host plants."
         ]
     }
 ];

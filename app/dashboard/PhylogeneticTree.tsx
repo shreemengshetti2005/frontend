@@ -19,39 +19,24 @@ const domainColors = {
     unclassified: "#F59E0B"
 };
 
+// --- FINAL DATA WITH ELLIPSIS NODES RE-ADDED ---
 const treeData: TreeNode = {
     name: "Eukaryota",
     domain: "eukaryota",
     children: [
-        { name: "<...>", isEllipsis: true },
-        {
-            name: "Excavata",
-            domain: "eukaryota",
-            children: [
-                { name: "<...>", isEllipsis: true },
-                { name: "Fornicata sp.", domain: "eukaryota" },
-                { name: "Euglenozoa sp.", domain: "eukaryota" },
-                { name: "<...>", isEllipsis: true },
-            ]
-        },
         {
             name: "SAR",
             domain: "eukaryota",
             children: [
                 { name: "<...>", isEllipsis: true },
                 {
-                    name: "Stramenopiles",
+                    name: "Stramenopila",
                     domain: "eukaryota",
                     children: [
                         { name: "<...>", isEllipsis: true },
-                        { name: "Bacillariophyta sp. 1", domain: "eukaryota" },
-                        { name: "Bacillariophyta sp. 2", domain: "eukaryota" },
-                        { name: "Phaeophyceae sp.", domain: "eukaryota" },
-                        { name: "Novel Species X", novel: true, domain: "eukaryota" },
-                        { name: "Chrysophyceae sp.", domain: "eukaryota" },
-                        { name: "Bacillariophyta sp. 3", domain: "eukaryota" },
-                        { name: "Labyrinthulomycetes sp.", domain: "eukaryota" },
-                        { name: "<...>", isEllipsis: true }
+                        { name: "Oomycota", domain: "eukaryota" },
+                        { name: "T. pseudonana (Diatom)", domain: "eukaryota" },
+                        { name: "<...>", isEllipsis: true },
                     ]
                 },
                 {
@@ -59,8 +44,8 @@ const treeData: TreeNode = {
                     domain: "eukaryota",
                     children: [
                         { name: "<...>", isEllipsis: true },
-                        { name: "Dinoflagellate sp. 1", domain: "eukaryota" },
-                        { name: "Ciliophora sp.", domain: "eukaryota" },
+                        { name: "Dinoflagellata", domain: "eukaryota" },
+                        { name: "P. tetraurelia (Ciliate)", domain: "eukaryota" },
                         { name: "<...>", isEllipsis: true },
                     ]
                 },
@@ -68,8 +53,17 @@ const treeData: TreeNode = {
                     name: "Rhizaria",
                     domain: "eukaryota",
                     children: [
-                        { name: "Foraminifera sp.", domain: "eukaryota" },
-                        { name: "Radiolaria sp.", domain: "eukaryota" },
+                        { name: "<...>", isEllipsis: true },
+                        {
+                            name: "Foraminifera",
+                            domain: "eukaryota",
+                            children: [
+                                { name: "G. siphonifera", domain: "eukaryota" },
+                                { name: "Novel Deep-Sea Foram", novel: true, domain: "eukaryota" },
+                            ]
+                        },
+                        { name: "Radiolaria", domain: "eukaryota" },
+                        { name: "<...>", isEllipsis: true },
                     ]
                 },
                 { name: "<...>", isEllipsis: true },
@@ -80,8 +74,16 @@ const treeData: TreeNode = {
             domain: "eukaryota",
             children: [
                 { name: "<...>", isEllipsis: true },
-                { name: "Chlorophyta sp.", domain: "eukaryota" },
-                { name: "Rhodophyta sp.", domain: "eukaryota" },
+                { name: "Rhodophyta (Red Algae)", domain: "eukaryota" },
+                {
+                    name: "Viridiplantae",
+                    domain: "eukaryota",
+                    children: [
+                        { name: "<...>", isEllipsis: true },
+                        { name: "A. thaliana", domain: "eukaryota" },
+                        { name: "<...>", isEllipsis: true },
+                    ]
+                },
                 { name: "<...>", isEllipsis: true },
             ]
         },
@@ -90,8 +92,8 @@ const treeData: TreeNode = {
             domain: "eukaryota",
             children: [
                 { name: "<...>", isEllipsis: true },
-                { name: "Tubulinea sp.", domain: "eukaryota" },
-                { name: "Discosea sp.", domain: "eukaryota" },
+                { name: "A. proteus", domain: "eukaryota" },
+                { name: "Myxogastria (Slime Mold)", domain: "eukaryota" },
                 { name: "<...>", isEllipsis: true },
             ]
         },
@@ -105,47 +107,28 @@ const treeData: TreeNode = {
                     domain: "eukaryota",
                     children: [
                         { name: "<...>", isEllipsis: true },
-                        { name: "Ascomycota sp.", domain: "eukaryota" },
-                        { name: "Basidiomycota sp.", domain: "eukaryota" },
+                        { name: "S. cerevisiae (Yeast)", domain: "eukaryota" },
+                        { name: "Basidiomycota", domain: "eukaryota" },
                         { name: "<...>", isEllipsis: true },
                     ]
                 },
                 {
-                    name: "Metazoa",
+                    name: "Metazoa (Animalia)",
                     domain: "eukaryota",
                     children: [
                         { name: "<...>", isEllipsis: true },
-                        { name: "Cnidaria sp.", domain: "eukaryota" },
-                        { name: "Arthropoda sp.", domain: "eukaryota" },
-                        { name: "Nematoda sp.", domain: "eukaryota" },
+                        { name: "S. purpuratus (Urchin)", domain: "eukaryota" },
+                        { name: "Arthropoda", domain: "eukaryota" },
                         { name: "<...>", isEllipsis: true },
                     ]
                 },
-                { name: "Choanoflagellate sp.", domain: "eukaryota" },
                 { name: "<...>", isEllipsis: true },
             ],
-        },
-        {
-            name: "Haptophyta",
-            domain: "eukaryota",
-            children: [
-                { name: "<...>", isEllipsis: true },
-                { name: "Coccolithophore sp.", domain: "eukaryota" },
-                { name: "<...>", isEllipsis: true },
-            ]
-        },
-        {
-            name: "Cryptophyta",
-            domain: "eukaryota",
-            children: [
-                { name: "<...>", isEllipsis: true },
-                { name: "Cryptomonas sp.", domain: "eukaryota" },
-                { name: "<...>", isEllipsis: true },
-            ]
         },
         { name: "<...>", isEllipsis: true },
     ],
 };
+
 
 const PhylogeneticTree = () => {
     const svgRef = useRef(null);
@@ -158,8 +141,9 @@ const PhylogeneticTree = () => {
     const drawTree = () => {
         if (!svgRef.current || !containerRef.current) return;
 
-        const containerWidth = containerRef.current.clientWidth;
-        const containerHeight = containerRef.current.clientHeight;
+        const containerNode = containerRef.current as HTMLDivElement;
+        const containerWidth = containerNode.clientWidth;
+        const containerHeight = containerNode.clientHeight;
 
         const baseWidth = 1600;
         const baseHeight = 1400;
@@ -209,8 +193,8 @@ const PhylogeneticTree = () => {
             .join("path")
             .attr("d", d3
                 .linkHorizontal()
-                .x((d) => (d.y + 200) * zoom)
-                .y((d) => (d.x + padding) * zoom)
+                .x((d: any) => (d.y + 200) * zoom)
+                .y((d: any) => (d.x + padding) * zoom)
             )
             .style("opacity", 0.8);
 
@@ -239,22 +223,22 @@ const PhylogeneticTree = () => {
         nodeGroup
             .append("circle")
             .attr("r", 10 * zoom)
-            .attr("fill", (d) => {
+            .attr("fill", (d: any) => {
                 if (d.data.isEllipsis) return "#6B7280";
                 if (d.data.novel) return "#7A7FEE";
-                const domainColor = d.data.domain ? domainColors[d.data.domain] : domainColors.eukaryota;
+                const domainColor = d.data.domain ? domainColors[d.data.domain as keyof typeof domainColors] : domainColors.eukaryota;
                 return d.children ? domainColor : `${domainColor}99`;
             })
-            .attr("stroke", (d) => {
+            .attr("stroke", (d: any) => {
                 if (d.data.isEllipsis) return "#4B5563";
                 if (d.data.novel) return "#6366F1";
-                const domainColor = d.data.domain ? domainColors[d.data.domain] : domainColors.eukaryota;
-                return d3.color(domainColor).darker(0.5);
+                const domainColor = d.data.domain ? domainColors[d.data.domain as keyof typeof domainColors] : domainColors.eukaryota;
+                return d3.color(domainColor)!.darker(0.5).toString();
             })
             .attr("stroke-width", 3 * zoom);
 
         nodeGroup
-            .on("mouseover", function(event, d) {
+            .on("mouseover", function(event, d: any) {
                 d3.select(this).select("circle:last-child")
                     .transition()
                     .duration(200)
@@ -262,18 +246,18 @@ const PhylogeneticTree = () => {
                     .attr("stroke-width", 4 * zoom);
 
                 const pathToRoot = [];
-                let current = d;
+                let current: d3.HierarchyPointNode<TreeNode> | null = d;
                 while (current) {
                     pathToRoot.push(current);
                     current = current.parent;
                 }
 
                 linkGroup.selectAll("path")
-                    .style("opacity", (linkD) => {
+                    .style("opacity", (linkD: any) => {
                         const isInPath = pathToRoot.includes(linkD.target) && pathToRoot.includes(linkD.source);
                         return isInPath ? 1 : 0.3;
                     })
-                    .style("stroke-width", (linkD) => {
+                    .style("stroke-width", (linkD: any) => {
                         const isInPath = pathToRoot.includes(linkD.target) && pathToRoot.includes(linkD.source);
                         return isInPath ? 5 * zoom : 3 * zoom;
                     });
@@ -315,26 +299,26 @@ const PhylogeneticTree = () => {
     const handleResetView = () => {
         setZoom(1);
         if (containerRef.current) {
-            containerRef.current.scrollTop = 0;
-            containerRef.current.scrollLeft = 0;
+            (containerRef.current as HTMLDivElement).scrollTop = 0;
+            (containerRef.current as HTMLDivElement).scrollLeft = 0;
         }
     };
 
-    const handleMouseDown = (e) => {
-        if (e.target === svgRef.current || e.target.closest('svg')) {
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (e.target === svgRef.current || (e.target as HTMLElement).closest('svg')) {
             setIsDragging(true);
             setLastPanPoint({ x: e.clientX, y: e.clientY });
         }
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: React.MouseEvent) => {
         if (!isDragging || !containerRef.current) return;
 
         const deltaX = e.clientX - lastPanPoint.x;
         const deltaY = e.clientY - lastPanPoint.y;
 
-        containerRef.current.scrollLeft -= deltaX;
-        containerRef.current.scrollTop -= deltaY;
+        (containerRef.current as HTMLDivElement).scrollLeft -= deltaX;
+        (containerRef.current as HTMLDivElement).scrollTop -= deltaY;
 
         setLastPanPoint({ x: e.clientX, y: e.clientY });
     };
@@ -430,11 +414,11 @@ const PhylogeneticTree = () => {
                             <span className="text-xs text-gray-700 dark:text-gray-300">Novel Species</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <div className="w-3 h-3 rounded-full border-2 flex-shrink-0" style={{ backgroundColor: domainColors.eukaryota, borderColor: d3.color(domainColors.eukaryota).darker(0.5) }}></div>
+                            <div className="w-3 h-3 rounded-full border-2 flex-shrink-0" style={{ backgroundColor: domainColors.eukaryota, borderColor: d3.color(domainColors.eukaryota)!.darker(0.5).toString() }}></div>
                             <span className="text-xs text-gray-700 dark:text-gray-300">Eukaryota Groups</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <div className="w-3 h-3 rounded-full border-2 flex-shrink-0 opacity-60" style={{ backgroundColor: `${domainColors.eukaryota}99`, borderColor: d3.color(domainColors.eukaryota).darker(0.5) }}></div>
+                            <div className="w-3 h-3 rounded-full border-2 flex-shrink-0 opacity-60" style={{ backgroundColor: `${domainColors.eukaryota}99`, borderColor: d3.color(domainColors.eukaryota)!.darker(0.5).toString() }}></div>
                             <span className="text-xs text-gray-700 dark:text-gray-300">Known Species</span>
                         </div>
                         <div className="flex items-center space-x-2">
@@ -453,11 +437,11 @@ const PhylogeneticTree = () => {
                             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Novel Species</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 rounded-full border-2" style={{ backgroundColor: domainColors.eukaryota, borderColor: d3.color(domainColors.eukaryota).darker(0.5) }}></div>
+                            <div className="w-4 h-4 rounded-full border-2" style={{ backgroundColor: domainColors.eukaryota, borderColor: d3.color(domainColors.eukaryota)!.darker(0.5).toString() }}></div>
                             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Eukaryota Groups</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <div className="w-4 h-4 rounded-full border-2 opacity-60" style={{ backgroundColor: `${domainColors.eukaryota}99`, borderColor: d3.color(domainColors.eukaryota).darker(0.5) }}></div>
+                            <div className="w-4 h-4 rounded-full border-2 opacity-60" style={{ backgroundColor: `${domainColors.eukaryota}99`, borderColor: d3.color(domainColors.eukaryota)!.darker(0.5).toString() }}></div>
                             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Known Species</span>
                         </div>
                         <div className="flex items-center space-x-2">
