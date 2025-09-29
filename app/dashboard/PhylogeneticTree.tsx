@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { TreePine, ZoomIn, ZoomOut, Maximize2, Minimize2 } from "lucide-react";
 import * as d3 from "d3";
 
 interface TreeNode {
@@ -343,7 +344,7 @@ const PhylogeneticTree: React.FC = () => {
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
-                        <span className="mr-2">🌳</span>
+                        <TreePine className="mr-2 h-5 w-5" />
                         Phylogenetic Tree
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -359,9 +360,7 @@ const PhylogeneticTree: React.FC = () => {
                             className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors"
                             title="Zoom out"
                         >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                            </svg>
+                            <ZoomOut className="w-4 h-4" />
                         </button>
                         <span className="px-2 text-sm font-mono text-gray-600 dark:text-gray-300 min-w-12 text-center">
                             {Math.round(zoom * 100)}%
@@ -371,9 +370,7 @@ const PhylogeneticTree: React.FC = () => {
                             className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors"
                             title="Zoom in"
                         >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                            </svg>
+                            <ZoomIn className="w-4 h-4" />
                         </button>
                         <button
                             onClick={handleResetView}
@@ -390,13 +387,11 @@ const PhylogeneticTree: React.FC = () => {
                         className="flex items-center space-x-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
                         title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
                     >
-                        <svg className="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            {isFullscreen ? (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                            ) : (
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
-                            )}
-                        </svg>
+                        {isFullscreen ? (
+                            <Minimize2 className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                        ) : (
+                            <Maximize2 className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                        )}
                     </button>
                 </div>
             </div>

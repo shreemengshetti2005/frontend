@@ -245,7 +245,7 @@ export default function LiteratureSearchPage() {
                                 </div>
 
                                 {/* Down Arrow with Text */}
-                                <div className="flex flex-col items-center mb-16 pt-20">
+                                <div className="flex flex-col items-center mb-16 pt-4">
                                     <p className="text-gray-500 dark:text-gray-400 text-sm mb-3">Recent Publications</p>
                                     <div className="animate-bounce">
                                         <svg className="w-6 h-6 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

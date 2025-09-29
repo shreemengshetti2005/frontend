@@ -233,7 +233,7 @@ export default function TemporalTrends({ isClient }: TemporalTrendsProps) {
   return (
     <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-6">
       <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
-        <span className="mr-2">⏱️</span>
+        <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         Temporal Analysis Trends
       </h3>
       <div ref={timelineRef} className="w-full overflow-x-auto"></div>

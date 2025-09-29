@@ -1,4 +1,5 @@
 import React from "react";
+import { AlertTriangle } from "lucide-react";
 
 interface ClusterData {
   id: number;
@@ -26,7 +27,7 @@ export default function ConservationAlerts({
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold mb-2 flex items-center">
-            <span className="mr-2">⚠️</span>
+            <AlertTriangle className="mr-2 h-5 w-5" />
             Conservation Alerts
           </h3>
           <p className="text-white/90">

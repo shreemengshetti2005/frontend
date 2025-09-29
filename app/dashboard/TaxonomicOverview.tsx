@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Target, Trophy } from "lucide-react";
 import * as d3 from "d3";
 
 interface AnalysisData {
@@ -286,7 +287,7 @@ export default function TaxonomicOverview({
       {/* Multi-layer Donut Chart */}
       <div className="lg:col-span-2 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-8">
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
-          <span className="mr-3 text-2xl">🔬</span>
+          <Target className="mr-3 h-6 w-6" />
           Similarity Analysis
         </h3>
         <div ref={sunburstRef} className="flex justify-center items-center min-h-[500px]"></div>
@@ -295,7 +296,7 @@ export default function TaxonomicOverview({
       {/* Color Legend */}
       <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-6">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
-          <span className="mr-2">📊</span>
+          <Trophy className="mr-2 h-5 w-5" />
           Similarity Rankings
         </h3>
         <div className="space-y-4">

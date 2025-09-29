@@ -1,4 +1,5 @@
 import React from "react";
+import { Dna, Microscope, Leaf, Sparkles } from "lucide-react";
 
 interface AnalysisData {
   totalSequences: number;
@@ -16,25 +17,25 @@ export default function MetricsCards({ analysisData }: MetricsCardsProps) {
     {
       label: "Total Sequences",
       value: analysisData.totalSequences,
-      icon: "🧬",
+      icon: <Dna className="h-6 w-6" />,
       color: "bg-gradient-to-br from-[#7A7FEE] to-[#8B86FF]",
     },
     {
       label: "Filtered Sequences",
       value: analysisData.filteredSequences,
-      icon: "🔬",
+      icon: <Microscope className="h-6 w-6" />,
       color: "bg-gradient-to-br from-[#4ECDC4] to-[#5ED5CC]",
     },
     {
       label: "Taxonomic Clusters",
       value: analysisData.taxonomicClusters,
-      icon: "🌿",
+      icon: <Leaf className="h-6 w-6" />,
       color: "bg-gradient-to-br from-[#FF6B6B] to-[#FF7F7F]",
     },
     {
       label: "Novel Taxa",
       value: analysisData.novelTaxa,
-      icon: "⭐",
+      icon: <Sparkles className="h-6 w-6" />,
       color: "bg-gradient-to-br from-[#45B7D1] to-[#5BC3D7]",
     },
   ];

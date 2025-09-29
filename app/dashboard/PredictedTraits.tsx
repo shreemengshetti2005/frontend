@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Dna, CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
 
 interface PredictedTraits {
     attribute: string;
@@ -51,37 +52,13 @@ const PredictedTraitsTab: React.FC = () => {
         if (status) {
             return (
                 <div className="flex items-center justify-center">
-                    <svg
-                        className="w-5 h-5 text-green-600 dark:text-green-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2.5"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                        />
-                    </svg>
+                    <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
                 </div>
             );
         } else {
             return (
                 <div className="flex items-center justify-center">
-                    <svg
-                        className="w-5 h-5 text-red-600 dark:text-red-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2.5"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                        />
-                    </svg>
+                    <XCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
                 </div>
             );
         }
@@ -118,7 +95,7 @@ const PredictedTraitsTab: React.FC = () => {
             {/* Header with subtle animation */}
             <div className="mb-6">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 flex items-center group">
-                    <span className="mr-2 transition-transform duration-300 group-hover:scale-110">🧬</span>
+                    <Dna className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                     Predicted Traits
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -178,7 +155,7 @@ const PredictedTraitsTab: React.FC = () => {
             {/* Enhanced Warning Box */}
             <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/10 dark:to-red-900/10 rounded-lg border border-orange-200 dark:border-orange-800/30 shadow-sm">
                 <div className="flex items-start space-x-3">
-                    <div className="text-orange-600 dark:text-orange-400 text-lg animate-pulse">⚠️</div>
+                    <AlertTriangle className="text-orange-600 dark:text-orange-400 h-5 w-5 mt-0.5" />
                     <div className="text-sm text-orange-800 dark:text-orange-200 leading-relaxed">
                         <strong>Generated Insights from ML Models:</strong> These are generated insights from machine learning models.
                         These can be inaccurate and serve only as basis for further studies. Always validate through proper experimental methods.

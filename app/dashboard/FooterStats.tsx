@@ -1,21 +1,22 @@
 import React from "react";
+import { Timer, ShieldCheck, Bug, Target } from "lucide-react";
 
 export default function FooterStats() {
   const stats = [
     {
       label: "Processing Time",
       value: "2.3 hours",
-      icon: "⏱️",
+      icon: <Timer className="h-5 w-5" />,
       trend: "-15% faster",
     },
     {
       label: "Data Quality",
       value: "98.5%",
-      icon: "✅",
+      icon: <ShieldCheck className="h-5 w-5" />,
       trend: "+2.1% improved",
     },
-    { label: "Rare Species", value: "12", icon: "🦋", trend: "+3 discovered" },
-    { label: "Confidence", value: "94.2%", icon: "🎯", trend: "+1.8% higher" },
+    { label: "Rare Species", value: "12", icon: <Bug className="h-5 w-5" />, trend: "+3 discovered" },
+    { label: "Confidence", value: "94.2%", icon: <Target className="h-5 w-5" />, trend: "+1.8% higher" },
   ];
 
   return (

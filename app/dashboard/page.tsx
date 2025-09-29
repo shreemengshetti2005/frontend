@@ -101,7 +101,7 @@ export default function DashboardPage() {
     if (!isClient) {
         return (
             <div
-                className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0a0a0a] dark:to-[#111111] flex items-center justify-center">
+                className="min-h-screen bg-gray-200 dark:bg-[#111111] flex items-center justify-center">
                 <div className="text-center">
                     <div
                         className="w-16 h-16 border-4 border-[#7A7FEE] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
@@ -114,13 +114,13 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-200 dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:to-[#111111]">
+        <div className="min-h-screen bg-gray-200 dark:bg-[#111111]">
             <FloatingNavbar/>
 
             <TitleSection currentDate={currentDate}/>
 
             <div className="pb-8">
-                <div className="container mx-auto px-6">
+                <div className="container">
                     <NovelSpeciesBanner isClient={isClient}/>
                     <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
 
