@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   description:
     "We build high-quality, scalable platforms—client portals, marketplaces, AI automations, and SaaS—using the best tools for the job, no shortcuts.",
   icons: {
-    icon: [{ url: "/automatic-favicon-no-bg.png", type: "image/png" }],
-    apple: [{ url: "/automatic-favicon-no-bg.png" }],
+    icon: [{ url: "/clustrai.png", type: "image/png" }],
+    apple: [{ url: "/clustrai.png" }],
   },
     generator: 'v0.app'
 }

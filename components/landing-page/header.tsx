@@ -160,7 +160,7 @@ export default function FloatingNavbar() {
   };
 
   const logoSrc =
-    mounted && resolvedTheme === "dark" ? "/logo-light.png" : "/logo-dark.png";
+    mounted && resolvedTheme === "dark" ? "/clustrai-light.png" : "/clustrai-dark.png";
 
   return (
     <>

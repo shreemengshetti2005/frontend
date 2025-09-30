@@ -15,7 +15,7 @@ export default function Footer() {
   }, [])
 
   // Determine which logo to show based on theme
-  const logoSrc = mounted && resolvedTheme === "dark" ? "/logo-light.png" : "/logo-dark.png"
+  const logoSrc = mounted && resolvedTheme === "dark" ? "/clustrai-light.png" : "/clustrai-dark.png"
 
   return (
     <footer className="container py-8 border-t border-gray-200 dark:border-gray-800">

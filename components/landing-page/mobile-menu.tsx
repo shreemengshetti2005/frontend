@@ -63,7 +63,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen) return null
 
   // Determine which logo to show based on theme
-  const logoSrc = isDarkMode ? "/logo-light.png" : "/logo-dark.png"
+  const logoSrc = isDarkMode ? "/clustrai-light.png" : "/clustrai-dark.png"
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/50 md:hidden" style={{ display: isOpen ? "block" : "none" }}>
