@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "@/components/landing-page/header";
 import { ArrowLeft, Dna, Microscope, Download, Eye, ChevronRight, ChevronDown, Database, FlaskConical } from "lucide-react";
 import { speciesData } from "./data";
+import type { SpeciesData } from "./data";
 
 export default function EdnaFoundPage() {
     const [selectedEdna, setSelectedEdna] = useState(speciesData[0]);
@@ -77,7 +78,7 @@ export default function EdnaFoundPage() {
                                 </h2>
 
                                 <div className="space-y-3">
-                                    {speciesData.map((edna, index) => (
+                                    {speciesData.map((edna: SpeciesData, index: number) => (
                                         <button
                                             key={edna.id}
                                             onClick={() => setSelectedEdna(edna)}
@@ -181,7 +182,7 @@ export default function EdnaFoundPage() {
                                                             {key}
                                                         </span>
                                                         <span className="text-gray-900 dark:text-white font-mono text-sm font-semibold">
-                                                            {value}
+                                                            {String(value)}
                                                         </span>
                                                     </div>
                                                 ))}

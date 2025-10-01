@@ -63,7 +63,12 @@ export default function ProcessingPage() {
             setProgress((prev) => {
                 if (prev >= 100) {
                     clearInterval(interval);
-                    setTimeout(() => router.push("/dashboard/ednafound"), 1200);
+
+                    // Check stored file info to determine routing
+                    const fileContainsKnown = sessionStorage.getItem("fileContainsKnown") === "true";
+                    const targetRoute = fileContainsKnown ? "/ednafound" : "/dashboard";
+
+                    setTimeout(() => router.push(targetRoute), 1200);
                     return 100;
                 }
 
@@ -153,13 +158,12 @@ export default function ProcessingPage() {
                                     <div key={step.name} className="flex items-center gap-4">
                                         {/* Step Icon */}
                                         <div
-                                            className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
-                                                index < currentStepIndex
-                                                    ? "bg-green-100 dark:bg-green-900/30 border-green-500"
-                                                    : index === currentStepIndex
-                                                        ? "bg-[#7A7FEE]/10 dark:bg-[#7A7FEE]/20 border-[#7A7FEE]"
-                                                        : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600"
-                                            }`}
+                                            className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${index < currentStepIndex
+                                                ? "bg-green-100 dark:bg-green-900/30 border-green-500"
+                                                : index === currentStepIndex
+                                                    ? "bg-[#7A7FEE]/10 dark:bg-[#7A7FEE]/20 border-[#7A7FEE]"
+                                                    : "bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600"
+                                                }`}
                                         >
                                             <StepIcon stepIndex={index} />
                                         </div>
@@ -167,20 +171,18 @@ export default function ProcessingPage() {
                                         {/* Step Content */}
                                         <div className="flex-1 min-w-0">
                                             <h3
-                                                className={`font-semibold transition-colors duration-300 ${
-                                                    index <= currentStepIndex
-                                                        ? "text-gray-900 dark:text-white"
-                                                        : "text-gray-500 dark:text-gray-400"
-                                                }`}
+                                                className={`font-semibold transition-colors duration-300 ${index <= currentStepIndex
+                                                    ? "text-gray-900 dark:text-white"
+                                                    : "text-gray-500 dark:text-gray-400"
+                                                    }`}
                                             >
                                                 {step.name}
                                             </h3>
                                             <p
-                                                className={`text-sm transition-colors duration-300 ${
-                                                    index <= currentStepIndex
-                                                        ? "text-gray-600 dark:text-gray-300"
-                                                        : "text-gray-400 dark:text-gray-500"
-                                                }`}
+                                                className={`text-sm transition-colors duration-300 ${index <= currentStepIndex
+                                                    ? "text-gray-600 dark:text-gray-300"
+                                                    : "text-gray-400 dark:text-gray-500"
+                                                    }`}
                                             >
                                                 {step.description}
                                             </p>
@@ -190,13 +192,13 @@ export default function ProcessingPage() {
                                         <div className="flex-shrink-0">
                                             {index < currentStepIndex && (
                                                 <span className="text-xs font-medium px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
-                          Completed
-                        </span>
+                                                    Completed
+                                                </span>
                                             )}
                                             {index === currentStepIndex && (
                                                 <span className="text-xs font-medium px-2 py-1 rounded-full bg-[#7A7FEE]/10 dark:bg-[#7A7FEE]/20 text-[#7A7FEE]">
-                          Processing...
-                        </span>
+                                                    Processing...
+                                                </span>
                                             )}
                                         </div>
                                     </div>

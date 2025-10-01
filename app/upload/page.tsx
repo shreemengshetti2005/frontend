@@ -102,16 +102,13 @@ export default function UploadPage() {
     const handleContinue = useCallback(() => {
         if (!selectedFile) return;
 
-        // Check if filename contains "known" (case-insensitive)
+        // Store file info in sessionStorage for later routing decision
         const fileName = selectedFile.name.toLowerCase();
         const containsKnown = fileName.includes("known");
+        sessionStorage.setItem("fileContainsKnown", containsKnown.toString());
 
-        // Route based on filename
-        if (containsKnown) {
-            router.push("/dashboard/ednafound");
-        } else {
-            router.push("/dashboard");
-        }
+        // Go directly to processing
+        router.push("/processing");
     }, [router, selectedFile]);
 
     const handleRemoveFile = useCallback(() => {
@@ -219,11 +216,10 @@ export default function UploadPage() {
                     <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700 mx-4 sm:mx-0">
                         {!selectedFile ? (
                             <div
-                                className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center transition-all duration-200 cursor-pointer ${
-                                    dragActive
-                                        ? "border-[#7A7FEE] bg-[#7A7FEE]/5"
-                                        : "border-gray-300 dark:border-gray-600 hover:border-[#7A7FEE] hover:bg-[#7A7FEE]/5"
-                                }`}
+                                className={`border-2 border-dashed rounded-xl p-8 sm:p-12 text-center transition-all duration-200 cursor-pointer ${dragActive
+                                    ? "border-[#7A7FEE] bg-[#7A7FEE]/5"
+                                    : "border-gray-300 dark:border-gray-600 hover:border-[#7A7FEE] hover:bg-[#7A7FEE]/5"
+                                    }`}
                                 onDragEnter={handleDrag}
                                 onDragLeave={handleDrag}
                                 onDragOver={handleDrag}
@@ -254,7 +250,10 @@ export default function UploadPage() {
                                     <button
                                         type="button"
                                         className="px-4 sm:px-6 py-2 bg-[#7A7FEE] text-white rounded-lg hover:bg-[#6366f1] active:bg-[#5856eb] transition-colors font-medium text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#7A7FEE] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a]"
-                                        onClick={(e) => e.stopPropagation()}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleChooseFile();
+                                        }}
                                     >
                                         Choose File
                                     </button>
@@ -302,12 +301,12 @@ export default function UploadPage() {
                                 {isUploading && (
                                     <div className="space-y-2">
                                         <div className="flex justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        Uploading...
-                      </span>
                                             <span className="text-gray-600 dark:text-gray-400">
-                        {uploadProgress}%
-                      </span>
+                                                Uploading...
+                                            </span>
+                                            <span className="text-gray-600 dark:text-gray-400">
+                                                {uploadProgress}%
+                                            </span>
                                         </div>
                                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                             <div
@@ -340,7 +339,7 @@ export default function UploadPage() {
                                             onClick={handleContinue}
                                             className="flex-1 bg-[#7A7FEE] text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl hover:bg-[#6366f1] active:bg-[#5856eb] transition-colors font-medium text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#7A7FEE] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a]"
                                         >
-                                            Continue to Dashboard
+                                            Start Analysis
                                         </button>
                                     )}
                                 </div>

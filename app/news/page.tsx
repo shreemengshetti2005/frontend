@@ -1,22 +1,22 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, ChevronRight, Mail, ArrowLeft, Share2, BookOpen, Plus } from 'lucide-react';
-import { blogPosts, categories } from './data';
+import { blogPosts, BlogPost } from './data';
 import Header from "@/components/landing-page/header";
 
 export default function BlogPage() {
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [selectedPost, setSelectedPost] = useState(null);
+    const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+    const [isClient, setIsClient] = useState(false);
     const [email, setEmail] = useState("");
     const [showMore, setShowMore] = useState(false);
 
-    const filteredPosts = selectedCategory === "All"
-        ? blogPosts
-        : blogPosts.filter(post => post.category === selectedCategory);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const featuredPosts = blogPosts.filter(post => post.featured);
-    const displayedPosts = showMore ? filteredPosts.slice(1) : filteredPosts.slice(1, 5);
+    const displayedPosts = showMore ? blogPosts.slice(1) : blogPosts.slice(1, 5);
 
     const handleSubscribe = () => {
         if (email) {
@@ -47,11 +47,11 @@ export default function BlogPage() {
                                 </span>
                                 <div className="flex items-center gap-1">
                                     <Calendar className="h-4 w-4" />
-                                    {new Date(selectedPost.publishedAt).toLocaleDateString('en-US', {
+                                    {isClient ? new Date(selectedPost.publishedAt).toLocaleDateString('en-US', {
                                         year: 'numeric',
                                         month: 'long',
                                         day: 'numeric'
-                                    })}
+                                    }) : selectedPost.publishedAt}
                                 </div>
                                 <div className="flex items-center gap-1">
                                     <Clock className="h-4 w-4" />
@@ -103,7 +103,7 @@ export default function BlogPage() {
                             <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Topics</h3>
                                 <div className="flex flex-wrap gap-3">
-                                    {selectedPost.tags.map((tag, index) => (
+                                    {selectedPost.tags.map((tag: string, index: number) => (
                                         <span
                                             key={index}
                                             className="px-4 py-2 bg-gradient-to-r from-[#7A7FEE]/10 to-[#7A7FEE]/5 text-[#7A7FEE] rounded-full text-sm font-medium border border-[#7A7FEE]/20 hover:border-[#7A7FEE]/40 transition-colors cursor-pointer"
@@ -186,7 +186,7 @@ export default function BlogPage() {
                                                 </div>
                                                 <div className="flex items-center gap-1">
                                                     <Calendar className="h-4 w-4" />
-                                                    {new Date(featuredPosts[0].publishedAt).toLocaleDateString()}
+                                                    {isClient ? new Date(featuredPosts[0].publishedAt).toLocaleDateString() : featuredPosts[0].publishedAt}
                                                 </div>
                                             </div>
                                         </div>
@@ -237,7 +237,7 @@ export default function BlogPage() {
                                             </div>
                                             <div className="flex items-center gap-1">
                                                 <Calendar className="h-4 w-4" />
-                                                {new Date(post.publishedAt).toLocaleDateString()}
+                                                {isClient ? new Date(post.publishedAt).toLocaleDateString() : post.publishedAt}
                                             </div>
                                         </div>
 
@@ -273,7 +273,7 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    {!showMore && filteredPosts.length > 5 && (
+                    {!showMore && blogPosts.length > 5 && (
                         <div className="text-center mt-16">
                             <button
                                 onClick={() => setShowMore(true)}
@@ -286,8 +286,9 @@ export default function BlogPage() {
                     )}
                 </div>
 
-                <div className="relative py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#0a0a0a] dark:to-[#111111]">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#7A7FEE]/5 via-transparent to-[#6366f1]/5"></div>
+
+                <div className="py-20 bg-white dark:bg-[#111111]">
+                    {/* <div className="absolute inset-0 bg-gradient-to-br from-[#7A7FEE]/5 via-transparent to-[#6366f1]/5"></div> */}
                     <div className="relative max-w-4xl mx-auto px-4 text-center">
                         <div className="bg-white/90 dark:bg-[#1a1a1a]/90 backdrop-blur-2xl rounded-3xl p-12 shadow-2xl border border-gray-200/50 dark:border-gray-800/50">
                             <div className="w-16 h-16 bg-gradient-to-br from-[#7A7FEE] to-[#6366f1] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -316,7 +317,7 @@ export default function BlogPage() {
                                     </button>
                                 </div>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                                    Join 500+ marine researchers and conservationists. Unsubscribe anytime.
+                                    Join 5+ marine researchers and conservationists. Unsubscribe anytime.
                                 </p>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from "react";
-import {Target, Trophy} from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import { Target, Trophy } from "lucide-react";
 import * as d3 from "d3";
 
 interface AnalysisData {
@@ -26,9 +26,9 @@ interface TaxonomicItem {
 }
 
 export default function TaxonomicOverview({
-                                              isClient,
-                                              analysisData,
-                                          }: TaxonomicOverviewProps) {
+    isClient,
+    analysisData,
+}: TaxonomicOverviewProps) {
     const sunburstRef = useRef<HTMLDivElement>(null);
 
     // --- CORRECTED DATA STRUCTURE WITH TAXONOMIC GROUPING ---
@@ -49,7 +49,7 @@ export default function TaxonomicOverview({
             name: "Amoebozoa",
             value: 94.5,
             color: "#8B5CF6",
-            children: [{name: "Amoeba proteus", value: 94.5, color: "#8B5CF6"}],
+            children: [{ name: "Amoeba proteus", value: 94.5, color: "#8B5CF6" }],
         },
         {
             name: "Chromista",
@@ -73,7 +73,7 @@ export default function TaxonomicOverview({
             value: 85.6,
             color: "#F59E0B",
             children: [
-                {name: "Saccharomyces cerevisiae", value: 85.6, color: "#F59E0B"},
+                { name: "Saccharomyces cerevisiae", value: 85.6, color: "#F59E0B" },
             ],
         },
         {
@@ -93,7 +93,7 @@ export default function TaxonomicOverview({
             value: 79.4,
             color: "#10B981",
             children: [
-                {name: "Arabidopsis thaliana", value: 79.4, color: "#10B981"},
+                { name: "Arabidopsis thaliana", value: 79.4, color: "#10B981" },
             ],
         },
     ];
@@ -274,7 +274,7 @@ export default function TaxonomicOverview({
         // Draw labels for both sides
         const drawLabels = (labels: any[]) => {
             labels.forEach((labelData: any) => {
-                const {data: d, midAngle, isRightSide, y} = labelData;
+                const { data: d, midAngle, isRightSide, y } = labelData;
                 const x = Math.cos(midAngle - Math.PI / 2) * radius * 1.35;
 
                 const textAnchor = isRightSide ? "start" : "end";
@@ -313,7 +313,7 @@ export default function TaxonomicOverview({
                     .attr("text-anchor", textAnchor)
                     .style("font-size", "12px")
                     .style("font-weight", "600")
-                    .style("fill", "#e5e7eb")
+                    .style("fill", document.documentElement.classList.contains('dark') ? "#e5e7eb" : "#374151")
                     .style("pointer-events", "none");
 
                 // Split long names into two lines
@@ -385,16 +385,16 @@ export default function TaxonomicOverview({
                     .style("opacity", function (this: any) {
                         const polylineData = d3.select(this).datum();
                         return polylineData &&
-                        polylineData.parentData &&
-                        polylineData.parentData.name === d.data.name
+                            polylineData.parentData &&
+                            polylineData.parentData.name === d.data.name
                             ? 0.9
                             : 0.15;
                     })
                     .style("stroke-width", function (this: any) {
                         const polylineData = d3.select(this).datum();
                         return polylineData &&
-                        polylineData.parentData &&
-                        polylineData.parentData.name === d.data.name
+                            polylineData.parentData &&
+                            polylineData.parentData.name === d.data.name
                             ? 2
                             : 1.2;
                     });
@@ -402,8 +402,8 @@ export default function TaxonomicOverview({
                 labelGroup.selectAll("text").style("opacity", function (this: any) {
                     const textData = d3.select(this).datum();
                     return textData &&
-                    textData.parentData &&
-                    textData.parentData.name === d.data.name
+                        textData.parentData &&
+                        textData.parentData.name === d.data.name
                         ? 1
                         : 0.3;
                 });
@@ -478,7 +478,7 @@ export default function TaxonomicOverview({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-8">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
-                    <Target className="mr-3 h-6 w-6"/>
+                    <Target className="mr-3 h-6 w-6" />
                     Similarity Analysis
                 </h3>
                 <div
@@ -489,7 +489,7 @@ export default function TaxonomicOverview({
 
             <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-lg p-6">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
-                    <Trophy className="mr-2 h-5 w-5"/>
+                    <Trophy className="mr-2 h-5 w-5" />
                     Similarity Rankings
                 </h3>
                 <div className="space-y-4">
@@ -498,7 +498,7 @@ export default function TaxonomicOverview({
                             <div className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-[#111111] rounded-lg">
                                 <div
                                     className="w-4 h-4 rounded-full shadow-sm"
-                                    style={{backgroundColor: group.color}}
+                                    style={{ backgroundColor: group.color }}
                                 ></div>
                                 <div className="flex-1">
                                     <div className="font-semibold text-gray-900 dark:text-white text-sm">
@@ -523,14 +523,14 @@ export default function TaxonomicOverview({
                                         >
                                             <div
                                                 className="w-3 h-3 rounded-full"
-                                                style={{backgroundColor: child.color}}
+                                                style={{ backgroundColor: child.color }}
                                             ></div>
                                             <span className="text-gray-700 dark:text-gray-300">
-                        {child.name}
-                      </span>
+                                                {child.name}
+                                            </span>
                                             <span className="text-gray-500 dark:text-gray-400">
-                        ({child.value}%)
-                      </span>
+                                                ({child.value}%)
+                                            </span>
                                         </div>
                                     ))}
                                 </div>

@@ -1,4 +1,21 @@
-export const speciesData = [
+export interface SpeciesData {
+    id: string;
+    name: string;
+    sequence: string;
+    confidence: number;
+    taxonomy: {
+        kingdom: string;
+        phylum: string;
+        class: string;
+        order: string;
+        family: string;
+        genus: string;
+        species: string;
+    };
+    insights: string[];
+}
+
+export const speciesData: SpeciesData[] = [
     {
         id: "NR_145409.1",
         name: "Phaeoacremonium parasiticum ATCC 26366",
