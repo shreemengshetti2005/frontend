@@ -15,9 +15,9 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Automatic - Your AI-first Development Partner",
+  title: "ClustrAI - AI-Powered Bioinformatics",
   description:
-    "We build high-quality, scalable platforms—client portals, marketplaces, AI automations, and SaaS—using the best tools for the job, no shortcuts.",
+    "Advancing bioinformatics with AI-powered analysis of environmental DNA.",
   icons: {
     icon: [{ url: "/clustrai.png", type: "image/png" }],
     apple: [{ url: "/clustrai.png" }],
